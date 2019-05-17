@@ -35,40 +35,45 @@ var focusList = '';
 const data = JSON.parse(localStorage.getItem('items'));
 
 function addItem(input) {
-    // Bread
-    if (categories[0].includes(input.value.toLowerCase())) {
-        focusList = breadList;
-    }
-    // Dairy
-    else if (categories[1].includes(input.value.toLowerCase())) {
-        focusList = dairyList;
-    }
-    // Frozen
-    else if (categories[2].includes(input.value.toLowerCase())) {
-        focusList = frozenList;
-    }
-    // Fruit & Veg
-    else if (categories[3].includes(input.value.toLowerCase())) {
-        focusList = fruitVegList;
-    }
-    // Health
-    else if (categories[4].includes(input.value.toLowerCase())) {
-        focusList = healthList;
-    }
-    // Meat
-    else if (categories[5].includes(input.value.toLowerCase())) {
-        focusList = meatList;
-    }
-    // Tinned & Jarred
-    else if (categories[6].includes(input.value.toLowerCase())) {
-        focusList = tinnedList;
+
+    if (input.value !== '') {
+        // Bread
+        if (categories[0].includes(input.value.toLowerCase())) {
+            focusList = breadList;
+        }
+        // Dairy
+        else if (categories[1].includes(input.value.toLowerCase())) {
+            focusList = dairyList;
+        }
+        // Frozen
+        else if (categories[2].includes(input.value.toLowerCase())) {
+            focusList = frozenList;
+        }
+        // Fruit & Veg
+        else if (categories[3].includes(input.value.toLowerCase())) {
+            focusList = fruitVegList;
+        }
+        // Health
+        else if (categories[4].includes(input.value.toLowerCase())) {
+            focusList = healthList;
+        }
+        // Meat
+        else if (categories[5].includes(input.value.toLowerCase())) {
+            focusList = meatList;
+        }
+        // Tinned & Jarred
+        else if (categories[6].includes(input.value.toLowerCase())) {
+            focusList = tinnedList;
+        }
+        // Other
+        else {
+            focusList = otherList;
+        }
     }
     // Empty
-    else if (input.value === '' || input.value === ' ') {
-        inputInfo.innerHTML = "Please type something";
-    }
     else {
-        focusList = otherList;
+        inputInfo.innerHTML = "Please type something";
+        document.getElementById("input").focus();
     }
 
     focusList.style.display = "block";
