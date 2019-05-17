@@ -18,7 +18,7 @@ var categories = [
     ["vitamins"],
     // Meat
     ["proscuitto crudo", "proscuitto cotto", "pancetta"],
-    // Tinned
+    // tinjar
     ["peas", "tuna"]
 ]
 
@@ -28,39 +28,39 @@ const frozenList = document.getElementById("frozen");
 const fruitVegList = document.getElementById("fruitveg");
 const healthList = document.getElementById("health");
 const meatList = document.getElementById("meat");
-const tinnedList = document.getElementById("tinned");
-const unsortedList = document.getElementById("unsorted");
+const tinnedList = document.getElementById("tinjar");
+const otherList = document.getElementById("other");
 var focusList = '';
 
 const data = JSON.parse(localStorage.getItem('items'));
 
 function addItem(input) {
     // Bread
-    if (categories[0].includes(input.value)) {
+    if (categories[0].includes(input.value.toLowerCase())) {
         focusList = breadList;
     }
     // Dairy
-    else if (categories[1].includes(input.value)) {
+    else if (categories[1].includes(input.value.toLowerCase())) {
         focusList = dairyList;
     }
     // Frozen
-    else if (categories[2].includes(input.value)) {
+    else if (categories[2].includes(input.value.toLowerCase())) {
         focusList = frozenList;
     }
     // Fruit & Veg
-    else if (categories[3].includes(input.value)) {
+    else if (categories[3].includes(input.value.toLowerCase())) {
         focusList = fruitVegList;
     }
     // Health
-    else if (categories[4].includes(input.value)) {
+    else if (categories[4].includes(input.value.toLowerCase())) {
         focusList = healthList;
     }
     // Meat
-    else if (categories[5].includes(input.value)) {
+    else if (categories[5].includes(input.value.toLowerCase())) {
         focusList = meatList;
     }
-    // Tinned
-    else if (categories[6].includes(input.value)) {
+    // Tinned & Jarred
+    else if (categories[6].includes(input.value.toLowerCase())) {
         focusList = tinnedList;
     }
     // Empty
@@ -68,7 +68,7 @@ function addItem(input) {
         inputInfo.innerHTML = "Please type something";
     }
     else {
-        focusList = unsortedList;
+        focusList = otherList;
     }
 
     focusList.style.display = "block";
