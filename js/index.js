@@ -8,7 +8,7 @@ document.getElementById("input")
             document.getElementById("add-button").click();
         }
     });
-    
+
 const inputInfo = document.getElementById("inputInfo");
 
 window.onload = function () {
@@ -38,7 +38,7 @@ const frozenList = document.getElementById("frozen");
 const fruitVegList = document.getElementById("fruitveg");
 const healthList = document.getElementById("health");
 const meatList = document.getElementById("meat");
-const tinnedList = document.getElementById("tinjar");
+const tinjarList = document.getElementById("tinjar");
 const otherList = document.getElementById("other");
 var focusList = '';
 
@@ -73,7 +73,7 @@ function addItem(input) {
         }
         // Tinned & Jarred
         else if (categories[6].includes(input.value.toLowerCase())) {
-            focusList = tinnedList;
+            focusList = tinjarList;
         }
         // Other
         else {
