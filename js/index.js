@@ -1,4 +1,14 @@
 const input = document.getElementById('input');
+
+// Enter key
+document.getElementById("input")
+    .addEventListener("keyup", function (event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("add-button").click();
+        }
+    });
+    
 const inputInfo = document.getElementById("inputInfo");
 
 window.onload = function () {
@@ -97,11 +107,3 @@ data.forEach(item => {
     liMaker(item)
 })
 
-// Enter key
-document.getElementById("input")
-    .addEventListener("keyup", function (event) {
-        event.preventDefault();
-        if (event.keyCode === 13) {
-            document.getElementById("add-button").click();
-        }
-    });
