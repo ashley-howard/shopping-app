@@ -14,7 +14,7 @@
 <body>
     <div class="container">
 
-         <!--
+        <!--
         <form>
             <select name="sorting">
                 <option value="categories">Categories</option>
@@ -26,70 +26,76 @@
         <div id="categories">
 
             <div id="beverages">
-                <h2>Beverages</h2>
+                <h3>Beverages</h3>
+                <div id="beverages-list"></div>
             </div>
 
             <div id="cleaners">
-                <h2>Cleaners</h2>
+                <h3>Cleaners</h3>
             </div>
 
             <div id="bread">
-                <h2>Bread</h2>
+                <h3>Bread</h3>
             </div>
 
             <div id="dairy">
-                <h2>Dairy</h2>
+                <h3>Dairy</h3>
             </div>
 
             <div id="dry">
-                <h2>Dry / Baking Goods</h2>
+                <h3>Dry / Baking Goods</h3>
             </div>
 
             <div id="frozen">
-                <h2>Frozen</h2>
+                <h3>Frozen</h3>
             </div>
 
             <div id="produce">
-                <h2>Fruits & Veg</h2>
+                <h3>Fruits & Veg</h3>
             </div>
 
             <div id="health">
-                <h2>Health</h2>
+                <h3>Health</h3>
             </div>
 
             <div id="meat">
-                <h2>Meat</h2>
+                <h3>Meat</h3>
             </div>
 
             <div id="paper">
-                <h2>Paper Goods</h2>
+                <h3>Paper Goods</h3>
             </div>
 
             <div id="care">
-                <h2>Personal Care</h2>
+                <h3>Personal Care</h3>
             </div>
 
             <div id="tin">
-                <h2>Tins & Jars</h2>
+                <h3>Tins & Jars</h3>
             </div>
 
             <div id="other">
-                <h2>Other</h2>
+                <h3>Other</h3>
             </div>
         </div>
 
         <!--
         <div id="aisles">
             <div id="aisle1">
-                <h2>Aisle 1</h2>
+                <h3>Aisle 1</h3>
 
             </div>
         </div>
         -->
-
+        <!--
         <input id="input" type="text" name="input" autocomplete="off" placeholder="">
+-->
+ 
+            <div class="autocomplete" style="width:300px;">
+                <input id="input" type="text" name="input" autocomplete="off" placeholder="">
+            </div>
 
-        <button onclick="addItem(input)" class="btn add-input" id="add-button">Add</button>
+        <input onclick="addItem(input)" id="add-button" type="submit" value="Add"></input>
         <p id="inputInfo"></p>
 
     </div>
