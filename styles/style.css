@@ -1,5 +1,26 @@
 #bread, #dairy, #frozen, #produce, #health, #meat, #tin, #other, #care, #beverages, #cleaners, #dry, #paper {display:none;}
 
+.row.main {
+    padding-top: 10px;
+}
+
+.logo {font-family: 'Caveat', cursive; color: #65b7ff;}
+
+.searchbox {
+    display: flex;
+    justify-content: center;
+   /* position: fixed;
+    bottom: 20px;
+    right: 13%;
+    left: 13%;
+    margin: auto;
+    width: 75%;*/
+}
+
+input#add-button {
+    margin-left: 5px;
+}
+
 .autocomplete {
     /*the container must be positioned relative:*/
     position: relative;
@@ -16,7 +37,7 @@
     width: 100%;
   }
   input[type=submit] {
-    background-color: DodgerBlue;
+    background-color: #65b7ff;;
     color: #fff;
   }
   .autocomplete-items {

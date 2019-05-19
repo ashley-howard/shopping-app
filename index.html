@@ -7,8 +7,9 @@
 
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
         integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
+    <link href="https://fonts.googleapis.com/css?family=Caveat:700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Shopping App</title>
+    <title>Smartshop</title>
 </head>
 
 <body>
@@ -22,64 +23,78 @@
             </select>
         </form>
     -->
+        <div class="row main">
+            <div class="col-12" id="">
 
-        <div id="categories">
+                <h2 class="logo text-center">Smartshop</h2>
 
-            <div id="beverages">
-                <h3>Beverages</h3>
-                <div id="beverages-list"></div>
-            </div>
+                <div class="searchbox">
+                    <div class="autocomplete" style="width:15em;">
+                        <input id="input" type="text" name="input" autocomplete="off" placeholder="">
+                    </div>
 
-            <div id="cleaners">
-                <h3>Cleaners</h3>
-            </div>
+                    <input onclick="addItem(input)" id="add-button" type="submit" value="Add"></input>
 
-            <div id="bread">
-                <h3>Bread</h3>
-            </div>
+                </div>
+                <p id="inputInfo" class="text-center"></p>
 
-            <div id="dairy">
-                <h3>Dairy</h3>
-            </div>
+                <div id="categories">
 
-            <div id="dry">
-                <h3>Dry / Baking Goods</h3>
-            </div>
+                    <div id="beverages">
+                        <h3>Beverages</h3>
+                        <div id="beverages-list"></div>
+                    </div>
 
-            <div id="frozen">
-                <h3>Frozen</h3>
-            </div>
+                    <div id="cleaners">
+                        <h3>Cleaners</h3>
+                    </div>
 
-            <div id="produce">
-                <h3>Fruits & Veg</h3>
-            </div>
+                    <div id="bread">
+                        <h3>Bread</h3>
+                    </div>
 
-            <div id="health">
-                <h3>Health</h3>
-            </div>
+                    <div id="dairy">
+                        <h3>Dairy</h3>
+                    </div>
 
-            <div id="meat">
-                <h3>Meat</h3>
-            </div>
+                    <div id="dry">
+                        <h3>Dry / Baking Goods</h3>
+                    </div>
 
-            <div id="paper">
-                <h3>Paper Goods</h3>
-            </div>
+                    <div id="frozen">
+                        <h3>Frozen</h3>
+                    </div>
 
-            <div id="care">
-                <h3>Personal Care</h3>
-            </div>
+                    <div id="produce">
+                        <h3>Fruits & Veg</h3>
+                    </div>
 
-            <div id="tin">
-                <h3>Tins & Jars</h3>
-            </div>
+                    <div id="health">
+                        <h3>Health</h3>
+                    </div>
 
-            <div id="other">
-                <h3>Other</h3>
-            </div>
-        </div>
+                    <div id="meat">
+                        <h3>Meat</h3>
+                    </div>
 
-        <!--
+                    <div id="paper">
+                        <h3>Paper Goods</h3>
+                    </div>
+
+                    <div id="care">
+                        <h3>Personal Care</h3>
+                    </div>
+
+                    <div id="tin">
+                        <h3>Tins & Jars</h3>
+                    </div>
+
+                    <div id="other">
+                        <h3>Other</h3>
+                    </div>
+                </div>
+
+                <!--
         <div id="aisles">
             <div id="aisle1">
                 <h3>Aisle 1</h3>
@@ -87,17 +102,15 @@
             </div>
         </div>
         -->
-        <!--
+                <!--
         <input id="input" type="text" name="input" autocomplete="off" placeholder="">
 -->
- 
-            <div class="autocomplete" style="width:300px;">
-                <input id="input" type="text" name="input" autocomplete="off" placeholder="">
+
+
+
+
             </div>
-
-        <input onclick="addItem(input)" id="add-button" type="submit" value="Add"></input>
-        <p id="inputInfo"></p>
-
+        </div>
     </div>
 
 
