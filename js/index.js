@@ -45,13 +45,20 @@ var categories = [
 var concatCategories = categories.flat();
 
 let storeBeverages = localStorage.getItem('beverages') ? JSON.parse(localStorage.getItem('beverages')) : [];
+
 localStorage.setItem('beverages', JSON.stringify(storeBeverages));
-let storeBread = localStorage.getItem('bread') ? JSON.parse(localStorage.getItem('bread')) : [];
-localStorage.setItem('bread', JSON.stringify(storeBread));
 
-var focusStore = '';
+const beveragesData = JSON.parse(localStorage.getItem('beverages'));
+//let storeBread = localStorage.getItem('bread') ? JSON.parse(localStorage.getItem('bread')) : [];
+//localStorage.setItem('bread', JSON.stringify(storeBread));
 
-const beveragesList = document.getElementById("beverages");
+// if StoreBeveerages has item, show DIV!
+
+const beveragesDiv = document.getElementById("beverages");
+let showBeverages = (localStorage.getItem('beverages') != '[]') ? beveragesDiv.style.display = "block" : beveragesDiv.style.display = "none";
+
+
+const beveragesList = document.getElementById("beverages-list");
 const breadList = document.getElementById("bread");
 const cleanersList = document.getElementById("cleaners");
 const dairyList = document.getElementById("dairy");
@@ -64,7 +71,10 @@ const paperList = document.getElementById("paper");
 const careList = document.getElementById("care");
 const tinList = document.getElementById("tin");
 const otherList = document.getElementById("other");
+
+var focusStore = '';
 var focusList = '';
+var focusDiv = '';
 
 
 
@@ -74,13 +84,14 @@ function addItem(input) {
     if (input.value !== '') {
         // Beverages
         if (categories[0].includes(input.value.toLowerCase())) {
+            focusDiv = beveragesDiv;
             focusList = beveragesList;
             focusStore = storeBeverages;
         }
         // Bread
         else if (categories[1].includes(input.value.toLowerCase())) {
             focusList = breadList;
-            focusStore = storeBread;
+          //  focusStore = storeBread;
         }
         // Cleaners
         else if (categories[2].includes(input.value.toLowerCase())) {
@@ -133,9 +144,9 @@ function addItem(input) {
         document.getElementById("input").focus();
     }
 
-    focusList.style.display = "block";
+    focusDiv.style.display = "block";
     focusStore.push(input.value)
-    localStorage.setItem(focusList.id, JSON.stringify(focusStore))
+    localStorage.setItem(focusDiv.id, JSON.stringify(focusStore))
 
     liMaker(input.value);
     input.value = '';
@@ -143,23 +154,23 @@ function addItem(input) {
     randPlaceholder();
 }
 
-
+// make limaker for EVERY category?
 const liMaker = text => {
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
     var span = document.createElement("span");
-    span.textContent = ` ${input.value}`;
-    focusList.appendChild(li);
-    focusList.appendChild(span);
+    span.textContent = ` ${text}`;
+    //span.textContent = text;
+    beveragesList.appendChild(li);
+    beveragesList.appendChild(span);
     var br = document.createElement("br");
-    focusList.appendChild(br);
+    beveragesList.appendChild(br);
 }
 
-/*
 
-storeBeverages.forEach(item => {
+beveragesData.forEach(item => {
     liMaker(item)
-})*/
+})
 
 
 function randPlaceholder() {
