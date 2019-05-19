@@ -33,9 +33,9 @@ var categories = [
     // Health
     ["vitamins"],
     // Meat
-    ["proscuitto crudo", "proscuitto cotto", "pancetta"],
+    ["prosciutto crudo", "prosciutto cotto", "pancetta"],
     // Paper goods
-    ["towels"],
+    ["towels", "paper", "napkins"],
     // Personal Care
     ["cream"],
     // Tins and Jars
@@ -44,17 +44,14 @@ var categories = [
 
 var concatCategories = categories.flat();
 
-// const beverages = localStorage.getItem('beverages') ? JSON.parse(localStorage.getItem('beverages')) : [];
-//let beverages = localStorage.getItem('beverages') ? JSON.parse(localStorage.getItem('beverages')) : [];
-// etc
+let storeBeverages = localStorage.getItem('beverages') ? JSON.parse(localStorage.getItem('beverages')) : [];
+localStorage.setItem('beverages', JSON.stringify(storeBeverages));
+let storeBread = localStorage.getItem('bread') ? JSON.parse(localStorage.getItem('bread')) : [];
+localStorage.setItem('bread', JSON.stringify(storeBread));
+
+var focusStore = '';
 
 const beveragesList = document.getElementById("beverages");
-//const beveragesDiv = document.getElementById("beverages");
-//const beveragesList = document.getElementById("beverages");
-
-let storeBeverages = localStorage.getItem('beveragesList') ? JSON.parse(localStorage.getItem('beveragesList')) : [];
-localStorage.setItem('beveragesList', JSON.stringify(storeBeverages));
-
 const breadList = document.getElementById("bread");
 const cleanersList = document.getElementById("cleaners");
 const dairyList = document.getElementById("dairy");
@@ -78,10 +75,12 @@ function addItem(input) {
         // Beverages
         if (categories[0].includes(input.value.toLowerCase())) {
             focusList = beveragesList;
+            focusStore = storeBeverages;
         }
         // Bread
         else if (categories[1].includes(input.value.toLowerCase())) {
             focusList = breadList;
+            focusStore = storeBread;
         }
         // Cleaners
         else if (categories[2].includes(input.value.toLowerCase())) {
@@ -135,8 +134,8 @@ function addItem(input) {
     }
 
     focusList.style.display = "block";
-    // storeBeverages.push(input.value)
-    // localStorage.setItem('beverages', JSON.stringify(focusList))
+    focusStore.push(input.value)
+    localStorage.setItem(focusList.id, JSON.stringify(focusStore))
 
     liMaker(input.value);
     input.value = '';
@@ -158,7 +157,7 @@ const liMaker = text => {
 
 /*
 
-beveragesList.forEach(item => {
+storeBeverages.forEach(item => {
     liMaker(item)
 })*/
 
