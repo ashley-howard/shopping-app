@@ -44,33 +44,84 @@ var categories = [
 
 var concatCategories = categories.flat();
 
-let storeBeverages = localStorage.getItem('beverages') ? JSON.parse(localStorage.getItem('beverages')) : [];
-
-localStorage.setItem('beverages', JSON.stringify(storeBeverages));
-
+const beveragesList = document.getElementById("beverages");
+let beveragesShow = (localStorage.getItem('beverages') != '[]') ? beveragesList.style.display = "block" : beveragesList.style.display = "none";
+let beveragesStore = localStorage.getItem('beverages') ? JSON.parse(localStorage.getItem('beverages')) : [];
+localStorage.setItem('beverages', JSON.stringify(beveragesStore));
 const beveragesData = JSON.parse(localStorage.getItem('beverages'));
-//let storeBread = localStorage.getItem('bread') ? JSON.parse(localStorage.getItem('bread')) : [];
-//localStorage.setItem('bread', JSON.stringify(storeBread));
 
-// if StoreBeveerages has item, show DIV!
-
-const beveragesDiv = document.getElementById("beverages");
-let showBeverages = (localStorage.getItem('beverages') != '[]') ? beveragesDiv.style.display = "block" : beveragesDiv.style.display = "none";
-
-
-const beveragesList = document.getElementById("beverages-list");
 const breadList = document.getElementById("bread");
+let breadShow = (localStorage.getItem('bread') != '[]') ? breadList.style.display = "block" : breadList.style.display = "none";
+let breadStore = localStorage.getItem('bread') ? JSON.parse(localStorage.getItem('bread')) : [];
+localStorage.setItem('bread', JSON.stringify(breadStore));
+const breadData = JSON.parse(localStorage.getItem('bread'));
+
 const cleanersList = document.getElementById("cleaners");
+let cleanersShow = (localStorage.getItem('cleaners') != '[]') ? cleanersList.style.display = "block" : cleanersList.style.display = "none";
+let cleanersStore = localStorage.getItem('cleaners') ? JSON.parse(localStorage.getItem('cleaners')) : [];
+localStorage.setItem('cleaners', JSON.stringify(cleanersStore));
+const cleanersData = JSON.parse(localStorage.getItem('cleaners'));
+
 const dairyList = document.getElementById("dairy");
+let dairyShow = (localStorage.getItem('dairy') != '[]') ? dairyList.style.display = "block" : dairyList.style.display = "none";
+let dairyStore = localStorage.getItem('dairy') ? JSON.parse(localStorage.getItem('dairy')) : [];
+localStorage.setItem('dairy', JSON.stringify(dairyStore));
+const dairyData = JSON.parse(localStorage.getItem('dairy'));
+
 const dryList = document.getElementById("dry");
+let dryShow = (localStorage.getItem('dry') != '[]') ? dryList.style.display = "block" : dryList.style.display = "none";
+let dryStore = localStorage.getItem('dry') ? JSON.parse(localStorage.getItem('dry')) : [];
+localStorage.setItem('dry', JSON.stringify(dryStore));
+const dryData = JSON.parse(localStorage.getItem('dry'));
+
 const frozenList = document.getElementById("frozen");
+let frozenShow = (localStorage.getItem('frozen') != '[]') ? frozenList.style.display = "block" : frozenList.style.display = "none";
+let frozenStore = localStorage.getItem('frozen') ? JSON.parse(localStorage.getItem('frozen')) : [];
+localStorage.setItem('frozen', JSON.stringify(frozenStore));
+const frozenData = JSON.parse(localStorage.getItem('frozen'));
+
 const produceList = document.getElementById("produce");
+let produceShow = (localStorage.getItem('produce') != '[]') ? produceList.style.display = "block" : produceList.style.display = "none";
+let produceStore = localStorage.getItem('produce') ? JSON.parse(localStorage.getItem('produce')) : [];
+localStorage.setItem('produce', JSON.stringify(produceStore));
+const produceData = JSON.parse(localStorage.getItem('produce'));
+
 const healthList = document.getElementById("health");
+let healthShow = (localStorage.getItem('health') != '[]') ? healthList.style.display = "block" : healthList.style.display = "none";
+let healthStore = localStorage.getItem('health') ? JSON.parse(localStorage.getItem('health')) : [];
+localStorage.setItem('health', JSON.stringify(healthStore));
+const healthData = JSON.parse(localStorage.getItem('health'));
+
 const meatList = document.getElementById("meat");
+let meatShow = (localStorage.getItem('meat') != '[]') ? meatList.style.display = "block" : meatList.style.display = "none";
+let meatStore = localStorage.getItem('meat') ? JSON.parse(localStorage.getItem('meat')) : [];
+localStorage.setItem('meat', JSON.stringify(meatStore));
+const meatData = JSON.parse(localStorage.getItem('meat'));
+
 const paperList = document.getElementById("paper");
+let paperShow = (localStorage.getItem('paper') != '[]') ? paperList.style.display = "block" : paperList.style.display = "none";
+let paperStore = localStorage.getItem('paper') ? JSON.parse(localStorage.getItem('paper')) : [];
+localStorage.setItem('paper', JSON.stringify(paperStore));
+const paperData = JSON.parse(localStorage.getItem('paper'));
+
 const careList = document.getElementById("care");
+let careShow = (localStorage.getItem('care') != '[]') ? careList.style.display = "block" : careList.style.display = "none";
+let careStore = localStorage.getItem('care') ? JSON.parse(localStorage.getItem('care')) : [];
+localStorage.setItem('care', JSON.stringify(careStore));
+const careData = JSON.parse(localStorage.getItem('care'));
+
 const tinList = document.getElementById("tin");
+let tinShow = (localStorage.getItem('tin') != '[]') ? tinList.style.display = "block" : tinList.style.display = "none";
+let tinStore = localStorage.getItem('tin') ? JSON.parse(localStorage.getItem('tin')) : [];
+localStorage.setItem('tin', JSON.stringify(tinStore));
+const tinData = JSON.parse(localStorage.getItem('tin'));
+
 const otherList = document.getElementById("other");
+let otherShow = (localStorage.getItem('other') != '[]') ? otherList.style.display = "block" : otherList.style.display = "none";
+let otherStore = localStorage.getItem('other') ? JSON.parse(localStorage.getItem('other')) : [];
+localStorage.setItem('other', JSON.stringify(otherStore));
+const otherData = JSON.parse(localStorage.getItem('other'));
+
 
 var focusStore = '';
 var focusList = '';
@@ -84,58 +135,68 @@ function addItem(input) {
     if (input.value !== '') {
         // Beverages
         if (categories[0].includes(input.value.toLowerCase())) {
-            focusDiv = beveragesDiv;
             focusList = beveragesList;
-            focusStore = storeBeverages;
+            focusStore = beveragesStore;
         }
         // Bread
         else if (categories[1].includes(input.value.toLowerCase())) {
             focusList = breadList;
-          //  focusStore = storeBread;
+            focusStore = breadStore;
         }
         // Cleaners
         else if (categories[2].includes(input.value.toLowerCase())) {
             focusList = cleanersList;
+            focusStore = cleanersStore;
         }
         // Dairy
         else if (categories[3].includes(input.value.toLowerCase())) {
             focusList = dairyList;
+            focusStore = dairyStore;
         }
         // Dry / Baking Goods
         else if (categories[4].includes(input.value.toLowerCase())) {
             focusList = dryList;
+            focusStore = dryStore;
         }
         // Frozen
         else if (categories[5].includes(input.value.toLowerCase())) {
             focusList = frozenList;
+            focusStore = frozenStore;
         }
         // Fruit & Veg
         else if (categories[6].includes(input.value.toLowerCase())) {
             focusList = produceList;
+            focusStore = produceStore;
         }
         // Health
         else if (categories[7].includes(input.value.toLowerCase())) {
             focusList = healthList;
+            focusStore = healthStore;
         }
         // Meat
         else if (categories[8].includes(input.value.toLowerCase())) {
             focusList = meatList;
+            focusStore = meatStore;
         }
         // Paper Goods
         else if (categories[9].includes(input.value.toLowerCase())) {
             focusList = paperList;
+            focusStore = paperStore;
         }
         // Personal Care
         else if (categories[10].includes(input.value.toLowerCase())) {
             focusList = careList;
+            focusStore = careStore;
         }
         // Tinned & Jarred
         else if (categories[11].includes(input.value.toLowerCase())) {
             focusList = tinList;
+            focusStore = tinStore;
         }
         // Other
         else {
             focusList = otherList;
+            focusStore = otherStore;
         }
     }
     // Empty
@@ -144,9 +205,9 @@ function addItem(input) {
         document.getElementById("input").focus();
     }
 
-    focusDiv.style.display = "block";
+    focusList.style.display = "block";
     focusStore.push(input.value)
-    localStorage.setItem(focusDiv.id, JSON.stringify(focusStore))
+    localStorage.setItem(focusList.id, JSON.stringify(focusStore))
 
     liMaker(input.value);
     input.value = '';
@@ -154,21 +215,96 @@ function addItem(input) {
     randPlaceholder();
 }
 
-// make limaker for EVERY category?
+// in general
 const liMaker = text => {
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
     var span = document.createElement("span");
     span.textContent = ` ${text}`;
-    //span.textContent = text;
+    focusList.appendChild(li);
+    focusList.appendChild(span);
+    var br = document.createElement("br");
+    focusList.appendChild(br);
+}
+
+// beverages
+const beveragesMaker = text => {
+    var li = document.createElement("INPUT");
+    li.setAttribute("type", "checkbox");
+    var span = document.createElement("span");
+    span.textContent = ` ${text}`;
     beveragesList.appendChild(li);
     beveragesList.appendChild(span);
     var br = document.createElement("br");
     beveragesList.appendChild(br);
 }
 
-
 beveragesData.forEach(item => {
+    beveragesMaker(item)
+})
+
+// bread
+const breadMaker = text => {
+    var li = document.createElement("INPUT");
+    li.setAttribute("type", "checkbox");
+    var span = document.createElement("span");
+    span.textContent = ` ${text}`;
+    breadList.appendChild(li);
+    breadList.appendChild(span);
+    var br = document.createElement("br");
+    breadList.appendChild(br);
+}
+
+breadData.forEach(item => {
+    breadMaker(item)
+})
+
+
+
+
+
+
+cleanersData.forEach(item => {
+    liMaker(item)
+})
+
+dairyData.forEach(item => {
+    liMaker(item)
+})
+
+dryData.forEach(item => {
+    liMaker(item)
+})
+
+frozenData.forEach(item => {
+    liMaker(item)
+})
+
+produceData.forEach(item => {
+    liMaker(item)
+})
+
+healthData.forEach(item => {
+    liMaker(item)
+})
+
+meatData.forEach(item => {
+    liMaker(item)
+})
+
+paperData.forEach(item => {
+    liMaker(item)
+})
+
+careData.forEach(item => {
+    liMaker(item)
+})
+
+tinData.forEach(item => {
+    liMaker(item)
+})
+
+otherData.forEach(item => {
     liMaker(item)
 })
 
