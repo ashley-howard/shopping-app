@@ -122,13 +122,9 @@ let otherStore = localStorage.getItem('other') ? JSON.parse(localStorage.getItem
 localStorage.setItem('other', JSON.stringify(otherStore));
 const otherData = JSON.parse(localStorage.getItem('other'));
 
-
 var focusStore = '';
 var focusList = '';
 var focusDiv = '';
-
-
-
 
 function addItem(input) {
 
@@ -217,24 +213,28 @@ function addItem(input) {
 
 // in general
 const liMaker = text => {
+    var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    var span = document.createElement("span");
+    var span = document.createElement("span");  
+    focusList.appendChild(label);
+    label.appendChild(li);
     span.textContent = ` ${text}`;
-    focusList.appendChild(li);
-    focusList.appendChild(span);
+    label.appendChild(span);
     var br = document.createElement("br");
     focusList.appendChild(br);
 }
 
 // beverages
 const beveragesMaker = text => {
+    var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
     var span = document.createElement("span");
+    beveragesList.appendChild(label);
+    label.appendChild(li);
     span.textContent = ` ${text}`;
-    beveragesList.appendChild(li);
-    beveragesList.appendChild(span);
+    label.appendChild(span);
     var br = document.createElement("br");
     beveragesList.appendChild(br);
 }
@@ -245,12 +245,14 @@ beveragesData.forEach(item => {
 
 // bread
 const breadMaker = text => {
+    var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
     var span = document.createElement("span");
+    breadList.appendChild(label);
+    label.appendChild(li);
     span.textContent = ` ${text}`;
-    breadList.appendChild(li);
-    breadList.appendChild(span);
+    label.appendChild(span);
     var br = document.createElement("br");
     breadList.appendChild(br);
 }
@@ -261,12 +263,14 @@ breadData.forEach(item => {
 
 // cleaners
 const cleanersMaker = text => {
+    var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
     var span = document.createElement("span");
+    cleanersList.appendChild(label);
+    label.appendChild(li);
     span.textContent = ` ${text}`;
-    cleanersList.appendChild(li);
-    cleanersList.appendChild(span);
+    label.appendChild(span);
     var br = document.createElement("br");
     cleanersList.appendChild(br);
 }
@@ -277,12 +281,14 @@ cleanersData.forEach(item => {
 
 // dairy
 const dairyMaker = text => {
+    var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
     var span = document.createElement("span");
+    dairyList.appendChild(label);
+    label.appendChild(li);
     span.textContent = ` ${text}`;
-    dairyList.appendChild(li);
-    dairyList.appendChild(span);
+    label.appendChild(span);
     var br = document.createElement("br");
     dairyList.appendChild(br);
 }
@@ -293,12 +299,14 @@ dairyData.forEach(item => {
 
 // dry
 const dryMaker = text => {
+    var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
     var span = document.createElement("span");
+    dryList.appendChild(label);
+    label.appendChild(li);    
     span.textContent = ` ${text}`;
-    dryList.appendChild(li);
-    dryList.appendChild(span);
+    label.appendChild(span);
     var br = document.createElement("br");
     dryList.appendChild(br);
 }
@@ -309,12 +317,14 @@ dryData.forEach(item => {
 
 // frozen
 const frozenMaker = text => {
+    var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
     var span = document.createElement("span");
+    frozenList.appendChild(label);
+    label.appendChild(li);
     span.textContent = ` ${text}`;
-    frozenList.appendChild(li);
-    frozenList.appendChild(span);
+    label.appendChild(span);
     var br = document.createElement("br");
     frozenList.appendChild(br);
 }
@@ -325,12 +335,14 @@ frozenData.forEach(item => {
 
 // produce
 const produceMaker = text => {
+    var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
     var span = document.createElement("span");
+    produceList.appendChild(label);
+    label.appendChild(li);
     span.textContent = ` ${text}`;
-    produceList.appendChild(li);
-    produceList.appendChild(span);
+    label.appendChild(span);
     var br = document.createElement("br");
     produceList.appendChild(br);
 }
@@ -341,12 +353,14 @@ produceData.forEach(item => {
 
 // health
 const healthMaker = text => {
+    var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
     var span = document.createElement("span");
+    healthList.appendChild(label);
+    label.appendChild(li);
     span.textContent = ` ${text}`;
-    healthList.appendChild(li);
-    healthList.appendChild(span);
+    label.appendChild(span);
     var br = document.createElement("br");
     healthList.appendChild(br);
 }
@@ -357,12 +371,14 @@ healthData.forEach(item => {
 
 // meat
 const meatMaker = text => {
+    var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
     var span = document.createElement("span");
+    meatList.appendChild(label);
+    label.appendChild(li);   
     span.textContent = ` ${text}`;
-    meatList.appendChild(li);
-    meatList.appendChild(span);
+    label.appendChild(span);
     var br = document.createElement("br");
     meatList.appendChild(br);
 }
@@ -373,12 +389,14 @@ meatData.forEach(item => {
 
 // paper
 const paperMaker = text => {
+    var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
     var span = document.createElement("span");
+    paperList.appendChild(label);
+    label.appendChild(li);
     span.textContent = ` ${text}`;
-    paperList.appendChild(li);
-    paperList.appendChild(span);
+    label.appendChild(span);
     var br = document.createElement("br");
     paperList.appendChild(br);
 }
@@ -389,12 +407,14 @@ paperData.forEach(item => {
 
 // care
 const careMaker = text => {
+    var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
     var span = document.createElement("span");
+    careList.appendChild(label);
+    label.appendChild(li);
     span.textContent = ` ${text}`;
-    careList.appendChild(li);
-    careList.appendChild(span);
+    label.appendChild(span);
     var br = document.createElement("br");
     careList.appendChild(br);
 }
@@ -405,12 +425,14 @@ careData.forEach(item => {
 
 // tin
 const tinMaker = text => {
+    var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
     var span = document.createElement("span");
+    tinList.appendChild(label);
+    label.appendChild(li);
     span.textContent = ` ${text}`;
-    tinList.appendChild(li);
-    tinList.appendChild(span);
+    label.appendChild(span);
     var br = document.createElement("br");
     tinList.appendChild(br);
 }
@@ -421,12 +443,14 @@ tinData.forEach(item => {
 
 // other
 const otherMaker = text => {
+    var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
     var span = document.createElement("span");
+    otherList.appendChild(label);
+    label.appendChild(li);
     span.textContent = ` ${text}`;
-    otherList.appendChild(li);
-    otherList.appendChild(span);
+    label.appendChild(span);
     var br = document.createElement("br");
     otherList.appendChild(br);
 }
