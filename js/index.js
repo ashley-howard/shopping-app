@@ -259,55 +259,181 @@ breadData.forEach(item => {
     breadMaker(item)
 })
 
-
-
-
-
+// cleaners
+const cleanersMaker = text => {
+    var li = document.createElement("INPUT");
+    li.setAttribute("type", "checkbox");
+    var span = document.createElement("span");
+    span.textContent = ` ${text}`;
+    cleanersList.appendChild(li);
+    cleanersList.appendChild(span);
+    var br = document.createElement("br");
+    cleanersList.appendChild(br);
+}
 
 cleanersData.forEach(item => {
-    liMaker(item)
+    cleanersMaker(item)
 })
+
+// dairy
+const dairyMaker = text => {
+    var li = document.createElement("INPUT");
+    li.setAttribute("type", "checkbox");
+    var span = document.createElement("span");
+    span.textContent = ` ${text}`;
+    dairyList.appendChild(li);
+    dairyList.appendChild(span);
+    var br = document.createElement("br");
+    dairyList.appendChild(br);
+}
 
 dairyData.forEach(item => {
-    liMaker(item)
+    dairyMaker(item)
 })
+
+// dry
+const dryMaker = text => {
+    var li = document.createElement("INPUT");
+    li.setAttribute("type", "checkbox");
+    var span = document.createElement("span");
+    span.textContent = ` ${text}`;
+    dryList.appendChild(li);
+    dryList.appendChild(span);
+    var br = document.createElement("br");
+    dryList.appendChild(br);
+}
 
 dryData.forEach(item => {
-    liMaker(item)
+    dryMaker(item)
 })
+
+// frozen
+const frozenMaker = text => {
+    var li = document.createElement("INPUT");
+    li.setAttribute("type", "checkbox");
+    var span = document.createElement("span");
+    span.textContent = ` ${text}`;
+    frozenList.appendChild(li);
+    frozenList.appendChild(span);
+    var br = document.createElement("br");
+    frozenList.appendChild(br);
+}
 
 frozenData.forEach(item => {
-    liMaker(item)
+    frozenMaker(item)
 })
+
+// produce
+const produceMaker = text => {
+    var li = document.createElement("INPUT");
+    li.setAttribute("type", "checkbox");
+    var span = document.createElement("span");
+    span.textContent = ` ${text}`;
+    produceList.appendChild(li);
+    produceList.appendChild(span);
+    var br = document.createElement("br");
+    produceList.appendChild(br);
+}
 
 produceData.forEach(item => {
-    liMaker(item)
+    produceMaker(item)
 })
+
+// health
+const healthMaker = text => {
+    var li = document.createElement("INPUT");
+    li.setAttribute("type", "checkbox");
+    var span = document.createElement("span");
+    span.textContent = ` ${text}`;
+    healthList.appendChild(li);
+    healthList.appendChild(span);
+    var br = document.createElement("br");
+    healthList.appendChild(br);
+}
 
 healthData.forEach(item => {
-    liMaker(item)
+    healthMaker(item)
 })
+
+// meat
+const meatMaker = text => {
+    var li = document.createElement("INPUT");
+    li.setAttribute("type", "checkbox");
+    var span = document.createElement("span");
+    span.textContent = ` ${text}`;
+    meatList.appendChild(li);
+    meatList.appendChild(span);
+    var br = document.createElement("br");
+    meatList.appendChild(br);
+}
 
 meatData.forEach(item => {
-    liMaker(item)
+    meatMaker(item)
 })
+
+// paper
+const paperMaker = text => {
+    var li = document.createElement("INPUT");
+    li.setAttribute("type", "checkbox");
+    var span = document.createElement("span");
+    span.textContent = ` ${text}`;
+    paperList.appendChild(li);
+    paperList.appendChild(span);
+    var br = document.createElement("br");
+    paperList.appendChild(br);
+}
 
 paperData.forEach(item => {
-    liMaker(item)
+    paperMaker(item)
 })
+
+// care
+const careMaker = text => {
+    var li = document.createElement("INPUT");
+    li.setAttribute("type", "checkbox");
+    var span = document.createElement("span");
+    span.textContent = ` ${text}`;
+    careList.appendChild(li);
+    careList.appendChild(span);
+    var br = document.createElement("br");
+    careList.appendChild(br);
+}
 
 careData.forEach(item => {
-    liMaker(item)
+    careMaker(item)
 })
+
+// tin
+const tinMaker = text => {
+    var li = document.createElement("INPUT");
+    li.setAttribute("type", "checkbox");
+    var span = document.createElement("span");
+    span.textContent = ` ${text}`;
+    tinList.appendChild(li);
+    tinList.appendChild(span);
+    var br = document.createElement("br");
+    tinList.appendChild(br);
+}
 
 tinData.forEach(item => {
-    liMaker(item)
+    tinMaker(item)
 })
+
+// other
+const otherMaker = text => {
+    var li = document.createElement("INPUT");
+    li.setAttribute("type", "checkbox");
+    var span = document.createElement("span");
+    span.textContent = ` ${text}`;
+    otherList.appendChild(li);
+    otherList.appendChild(span);
+    var br = document.createElement("br");
+    otherList.appendChild(br);
+}
 
 otherData.forEach(item => {
-    liMaker(item)
+    otherMaker(item)
 })
-
 
 function randPlaceholder() {
     let randItem = Math.floor(Math.random() * (concatCategories.length));
