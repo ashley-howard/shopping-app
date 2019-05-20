@@ -218,12 +218,10 @@ const liMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("id", "checkbox-item");
-    var span = document.createElement("span");  
+    label.setAttribute("id", "checkbox-item");
     focusList.appendChild(label);
     label.appendChild(li);
-    span.textContent = ` ${text}`;
-    label.appendChild(span);
+    label.appendChild(document.createTextNode(` ${text}`)); 
     var br = document.createElement("br");
     focusList.appendChild(br);
 }
@@ -233,12 +231,10 @@ const beveragesMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("id", "checkbox-item");
-    var span = document.createElement("span");
+    label.setAttribute("id", "checkbox-item");
     beveragesList.appendChild(label);
     label.appendChild(li);
-    span.textContent = ` ${text}`;
-    label.appendChild(span);
+    label.appendChild(document.createTextNode(` ${text}`)); 
     var br = document.createElement("br");
     beveragesList.appendChild(br);
 }
@@ -252,12 +248,10 @@ const breadMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("id", "checkbox-item");
-    var span = document.createElement("span");
+    label.setAttribute("id", "checkbox-item");
     breadList.appendChild(label);
     label.appendChild(li);
-    span.textContent = ` ${text}`;
-    label.appendChild(span);
+    label.appendChild(document.createTextNode(` ${text}`)); 
     var br = document.createElement("br");
     breadList.appendChild(br);
 }
@@ -271,12 +265,10 @@ const cleanersMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("id", "checkbox-item");
-    var span = document.createElement("span");
+    label.setAttribute("id", "checkbox-item");
     cleanersList.appendChild(label);
     label.appendChild(li);
-    span.textContent = ` ${text}`;
-    label.appendChild(span);
+    label.appendChild(document.createTextNode(` ${text}`)); 
     var br = document.createElement("br");
     cleanersList.appendChild(br);
 }
@@ -290,12 +282,10 @@ const dairyMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("id", "checkbox-item");
-    var span = document.createElement("span");
+    label.setAttribute("id", "checkbox-item");
     dairyList.appendChild(label);
     label.appendChild(li);
-    span.textContent = ` ${text}`;
-    label.appendChild(span);
+    label.appendChild(document.createTextNode(` ${text}`)); 
     var br = document.createElement("br");
     dairyList.appendChild(br);
 }
@@ -309,12 +299,10 @@ const dryMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("id", "checkbox-item");
-    var span = document.createElement("span");
+    label.setAttribute("id", "checkbox-item");
     dryList.appendChild(label);
     label.appendChild(li);    
-    span.textContent = ` ${text}`;
-    label.appendChild(span);
+    label.appendChild(document.createTextNode(` ${text}`)); 
     var br = document.createElement("br");
     dryList.appendChild(br);
 }
@@ -328,12 +316,10 @@ const frozenMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("id", "checkbox-item");
-    var span = document.createElement("span");
+    label.setAttribute("id", "checkbox-item");
     frozenList.appendChild(label);
     label.appendChild(li);
-    span.textContent = ` ${text}`;
-    label.appendChild(span);
+    label.appendChild(document.createTextNode(` ${text}`)); 
     var br = document.createElement("br");
     frozenList.appendChild(br);
 }
@@ -347,12 +333,10 @@ const produceMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("id", "checkbox-item");
-    var span = document.createElement("span");
+    label.setAttribute("id", "checkbox-item");
     produceList.appendChild(label);
     label.appendChild(li);
-    span.textContent = ` ${text}`;
-    label.appendChild(span);
+    label.appendChild(document.createTextNode(` ${text}`)); 
     var br = document.createElement("br");
     produceList.appendChild(br);
 }
@@ -366,12 +350,10 @@ const healthMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("id", "checkbox-item");
-    var span = document.createElement("span");
+    label.setAttribute("id", "checkbox-item");
     healthList.appendChild(label);
     label.appendChild(li);
-    span.textContent = ` ${text}`;
-    label.appendChild(span);
+    label.appendChild(document.createTextNode(` ${text}`)); 
     var br = document.createElement("br");
     healthList.appendChild(br);
 }
@@ -385,12 +367,10 @@ const meatMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("id", "checkbox-item");
-    var span = document.createElement("span");
+    label.setAttribute("id", "checkbox-item");
     meatList.appendChild(label);
     label.appendChild(li);   
-    span.textContent = ` ${text}`;
-    label.appendChild(span);
+    label.appendChild(document.createTextNode(` ${text}`)); 
     var br = document.createElement("br");
     meatList.appendChild(br);
 }
@@ -404,12 +384,10 @@ const paperMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("id", "checkbox-item");
-    var span = document.createElement("span");
+    label.setAttribute("id", "checkbox-item");
     paperList.appendChild(label);
     label.appendChild(li);
-    span.textContent = ` ${text}`;
-    label.appendChild(span);
+    label.appendChild(document.createTextNode(` ${text}`)); 
     var br = document.createElement("br");
     paperList.appendChild(br);
 }
@@ -423,12 +401,10 @@ const careMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("id", "checkbox-item");
-    var span = document.createElement("span");
+    label.setAttribute("id", "checkbox-item");
     careList.appendChild(label);
     label.appendChild(li);
-    span.textContent = ` ${text}`;
-    label.appendChild(span);
+    label.appendChild(document.createTextNode(` ${text}`)); 
     var br = document.createElement("br");
     careList.appendChild(br);
 }
@@ -442,12 +418,10 @@ const tinMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("id", "checkbox-item");
-    var span = document.createElement("span");
+    label.setAttribute("id", "checkbox-item");
     tinList.appendChild(label);
     label.appendChild(li);
-    span.textContent = ` ${text}`;
-    label.appendChild(span);
+    label.appendChild(document.createTextNode(` ${text}`)); 
     var br = document.createElement("br");
     tinList.appendChild(br);
 }
@@ -461,12 +435,10 @@ const otherMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("id", "checkbox-item");
-    var span = document.createElement("span");
+    label.setAttribute("id", "checkbox-item");
     otherList.appendChild(label);
     label.appendChild(li);
-    span.textContent = ` ${text}`;
-    label.appendChild(span);
+    label.appendChild(document.createTextNode(` ${text}`)); 
     var br = document.createElement("br");
     otherList.appendChild(br);
 }
