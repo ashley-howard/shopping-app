@@ -1,4 +1,5 @@
 const input = document.getElementById('input');
+const checkboxItems = document.getElementById('checkbox-item');
 
 // Enter key
 document.getElementById("input")
@@ -10,6 +11,7 @@ document.getElementById("input")
     });
 
 const inputInfo = document.getElementById("inputInfo");
+const finishButton = document.getElementById('finished-button');
 
 window.onload = function () {
     document.getElementById("input").focus();
@@ -216,6 +218,7 @@ const liMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
+    li.setAttribute("id", "checkbox-item");
     var span = document.createElement("span");  
     focusList.appendChild(label);
     label.appendChild(li);
@@ -230,6 +233,7 @@ const beveragesMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
+    li.setAttribute("id", "checkbox-item");
     var span = document.createElement("span");
     beveragesList.appendChild(label);
     label.appendChild(li);
@@ -248,6 +252,7 @@ const breadMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
+    li.setAttribute("id", "checkbox-item");
     var span = document.createElement("span");
     breadList.appendChild(label);
     label.appendChild(li);
@@ -266,6 +271,7 @@ const cleanersMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
+    li.setAttribute("id", "checkbox-item");
     var span = document.createElement("span");
     cleanersList.appendChild(label);
     label.appendChild(li);
@@ -284,6 +290,7 @@ const dairyMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
+    li.setAttribute("id", "checkbox-item");
     var span = document.createElement("span");
     dairyList.appendChild(label);
     label.appendChild(li);
@@ -302,6 +309,7 @@ const dryMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
+    li.setAttribute("id", "checkbox-item");
     var span = document.createElement("span");
     dryList.appendChild(label);
     label.appendChild(li);    
@@ -320,6 +328,7 @@ const frozenMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
+    li.setAttribute("id", "checkbox-item");
     var span = document.createElement("span");
     frozenList.appendChild(label);
     label.appendChild(li);
@@ -338,6 +347,7 @@ const produceMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
+    li.setAttribute("id", "checkbox-item");
     var span = document.createElement("span");
     produceList.appendChild(label);
     label.appendChild(li);
@@ -356,6 +366,7 @@ const healthMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
+    li.setAttribute("id", "checkbox-item");
     var span = document.createElement("span");
     healthList.appendChild(label);
     label.appendChild(li);
@@ -374,6 +385,7 @@ const meatMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
+    li.setAttribute("id", "checkbox-item");
     var span = document.createElement("span");
     meatList.appendChild(label);
     label.appendChild(li);   
@@ -392,6 +404,7 @@ const paperMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
+    li.setAttribute("id", "checkbox-item");
     var span = document.createElement("span");
     paperList.appendChild(label);
     label.appendChild(li);
@@ -410,6 +423,7 @@ const careMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
+    li.setAttribute("id", "checkbox-item");
     var span = document.createElement("span");
     careList.appendChild(label);
     label.appendChild(li);
@@ -428,6 +442,7 @@ const tinMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
+    li.setAttribute("id", "checkbox-item");
     var span = document.createElement("span");
     tinList.appendChild(label);
     label.appendChild(li);
@@ -446,6 +461,7 @@ const otherMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
+    li.setAttribute("id", "checkbox-item");
     var span = document.createElement("span");
     otherList.appendChild(label);
     label.appendChild(li);
@@ -564,3 +580,10 @@ function autocomplete(inp, arr) {
 }
 
 autocomplete(document.getElementById("input"), concatCategories);
+
+function finishRemove(){
+ if (checkboxItems.checked){
+
+ }
+
+}
