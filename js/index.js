@@ -699,15 +699,16 @@ autocomplete(document.getElementById("input"), concatCategories);
 
 
 function selectItem(identifier) {
-   // var checkboxItem = document.getElementById(`${identifier}`);
-   var checkboxItem = document.getElementById(`input-${identifier}`);
-   var checkboxLabel = document.getElementById(identifier);
+    var checkboxItem = document.getElementById(`input-${identifier}`);
+    var checkboxLabel = document.getElementById(identifier);
+    getId = checkboxLabel.parentElement.id; // gets ID
+
     if (checkboxItem.checked == true) {
         checkboxLabel.style.textDecoration = "line-through";
-        console.log(`${identifier} selected`);
+        console.log(`"${checkboxItem.nextSibling.nodeValue}" "${getId}" "${identifier}" selected`);
 
     } else {
         checkboxLabel.style.textDecoration = "none";
-        console.log(`${identifier} deselected`);
+        console.log(`"${checkboxItem.nextSibling.nodeValue}" "${getId}" "${identifier}" deselected`);
     }
 }
