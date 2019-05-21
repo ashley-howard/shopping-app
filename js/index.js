@@ -223,9 +223,10 @@ const liMaker = text => {
     li.setAttribute("type", "checkbox");
     li.setAttribute("onclick", `selectItem('${text}')`);
     li.setAttribute("id", `${text}`);
+    label.setAttribute("id", `${text}-label`);
     focusList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`));
+    label.appendChild(document.createTextNode(`${text}`));
     var br = document.createElement("br");
     focusList.appendChild(br);
 }
@@ -239,7 +240,7 @@ const beveragesMaker = text => {
     li.setAttribute("id", `${text}`);
     beveragesList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`));
+    label.appendChild(document.createTextNode(`${text}`));
     var br = document.createElement("br");
     beveragesList.appendChild(br);
 }
@@ -257,7 +258,7 @@ const breadMaker = text => {
     li.setAttribute("id", `${text}`);
     breadList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`));
+    label.appendChild(document.createTextNode(`${text}`));
     var br = document.createElement("br");
     breadList.appendChild(br);
 }
@@ -275,7 +276,7 @@ const cleanersMaker = text => {
     li.setAttribute("id", `${text}`);
     cleanersList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`));
+    label.appendChild(document.createTextNode(`${text}`));
     var br = document.createElement("br");
     cleanersList.appendChild(br);
 }
@@ -293,7 +294,7 @@ const dairyMaker = text => {
     li.setAttribute("id", `${text}`);
     dairyList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`));
+    label.appendChild(document.createTextNode(`${text}`));
     var br = document.createElement("br");
     dairyList.appendChild(br);
 }
@@ -311,7 +312,7 @@ const dryMaker = text => {
     li.setAttribute("id", `${text}`);
     dryList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`));
+    label.appendChild(document.createTextNode(`${text}`));
     var br = document.createElement("br");
     dryList.appendChild(br);
 }
@@ -329,7 +330,7 @@ const frozenMaker = text => {
     li.setAttribute("id", `${text}`);
     frozenList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`));
+    label.appendChild(document.createTextNode(`${text}`));
     var br = document.createElement("br");
     frozenList.appendChild(br);
 }
@@ -347,7 +348,7 @@ const produceMaker = text => {
     li.setAttribute("id", `${text}`);
     produceList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`));
+    label.appendChild(document.createTextNode(`${text}`));
     var br = document.createElement("br");
     produceList.appendChild(br);
 }
@@ -365,7 +366,7 @@ const healthMaker = text => {
     li.setAttribute("id", `${text}`);
     healthList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`));
+    label.appendChild(document.createTextNode(`${text}`));
     var br = document.createElement("br");
     healthList.appendChild(br);
 }
@@ -383,7 +384,7 @@ const meatMaker = text => {
     li.setAttribute("id", `${text}`);
     meatList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`));
+    label.appendChild(document.createTextNode(`${text}`));
     var br = document.createElement("br");
     meatList.appendChild(br);
 }
@@ -401,7 +402,7 @@ const paperMaker = text => {
     li.setAttribute("id", `${text}`);
     paperList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`));
+    label.appendChild(document.createTextNode(`${text}`));
     var br = document.createElement("br");
     paperList.appendChild(br);
 }
@@ -419,7 +420,7 @@ const careMaker = text => {
     li.setAttribute("id", `${text}`);
     careList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`));
+    label.appendChild(document.createTextNode(`${text}`));
     var br = document.createElement("br");
     careList.appendChild(br);
 }
@@ -437,7 +438,7 @@ const tinMaker = text => {
     li.setAttribute("id", `${text}`);
     tinList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`));
+    label.appendChild(document.createTextNode(`${text}`));
     var br = document.createElement("br");
     tinList.appendChild(br);
 }
@@ -455,7 +456,7 @@ const otherMaker = text => {
     li.setAttribute("id", `${text}`);
     otherList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`));
+    label.appendChild(document.createTextNode(`${text}`));
     var br = document.createElement("br");
     otherList.appendChild(br);
 }
@@ -572,9 +573,13 @@ autocomplete(document.getElementById("input"), concatCategories);
 
 function selectItem(text) {
     var checkboxItem = document.getElementById(`${text}`);
+    var checkboxLabel = document.getElementById(`${text}-label`);
     if (checkboxItem.checked == true) {
+        checkboxLabel.style.textDecoration = "line-through";
         console.log(`${text} selected`);
+
     } else {
+        checkboxLabel.style.textDecoration = "none";
         console.log(`${text} deselected`);
     }
 }
