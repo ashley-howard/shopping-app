@@ -1,4 +1,4 @@
-#beverages,#bread,#care,#cleaners,#dairy,#dry,#frozen,#health,#meat,#other,#paper,#produce,#tin{display:none;padding:10px;background-color:#f1f1f1;margin:10px 0;border-left:2px solid #65b7ff;border-right:2px solid #65b7ff}
+#beverages,#bread,#care,#cleaners,#dairy,#dry,#frozen,#health,#meat,#other,#paper,#produce,#tin{display:none;padding:10px;margin:10px 0;border-bottom:1.5px solid #e7e4e4}
 .row.main{padding-top:10px;justify-content:center}
 .logo{font-family:Caveat,cursive;color:#65b7ff}
 h3{font-size:1.2em;font-family:'open sans',sans-serif;color:#65b7ff}
