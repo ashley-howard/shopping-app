@@ -47,11 +47,31 @@ var categories = [
 
 var concatCategories = categories.flat();
 
+/*
+const storedItemsList = document.getElementById("stored");
+//let storedItemsShow = (localStorage.getItem('stored') != '[]') ? storedItemsList.style.display = "block" : storedItemsList.style.display = "none";
+let storedItems = localStorage.getItem('stored') ? JSON.parse(localStorage.getItem('stored')) : [];
+localStorage.setItem('stored', JSON.stringify(storedItems));
+const storedItemsData = JSON.parse(localStorage.getItem('stored'));
+*/
+
+// var myNewArray = JSON.parse(myArray)
+//const beveragesData = JSON.parse(localStorage.getItem('stored'));
+
 const beveragesList = document.getElementById("beverages");
+//let beveragesShow = beverages != '[]' ? beveragesList.style.display = "block" : beveragesList.style.display = "none";
 let beveragesShow = (localStorage.getItem('beverages') != '[]') ? beveragesList.style.display = "block" : beveragesList.style.display = "none";
 let beveragesStore = localStorage.getItem('beverages') ? JSON.parse(localStorage.getItem('beverages')) : [];
 localStorage.setItem('beverages', JSON.stringify(beveragesStore));
 const beveragesData = JSON.parse(localStorage.getItem('beverages'));
+
+/*
+const beveragesListFinished = document.getElementById("beverages");
+let beveragesShowFinished = (localStorage.getItem('beveragesFinished') != '[]') ? beveragesListFinished.style.display = "block" : beveragesListFinished.style.display = "none";
+let beveragesStoreFinished = localStorage.getItem('beveragesFinished') ? JSON.parse(localStorage.getItem('beveragesFinished')) : [];
+localStorage.setItem('beveragesFinished', JSON.stringify(beveragesStoreFinished));
+const beveragesDataFinished = JSON.parse(localStorage.getItem('beveragesFinished'));
+*/
 
 const breadList = document.getElementById("bread");
 let breadShow = (localStorage.getItem('bread') != '[]') ? breadList.style.display = "block" : breadList.style.display = "none";
@@ -130,70 +150,88 @@ var focusList = '';
 var focusDiv = '';
 
 function addItem(input) {
+    var category = '';
+    var checked = 'unchecked';
+    var d = new Date();
+    var identifier = d.getTime();
 
     if (input.value !== '') {
         // Beverages
         if (categories[0].includes(input.value.toLowerCase())) {
+            //category = 'beverages';
             focusList = beveragesList;
             focusStore = beveragesStore;
+
         }
         // Bread
         else if (categories[1].includes(input.value.toLowerCase())) {
+           // category = 'bread';
             focusList = breadList;
             focusStore = breadStore;
         }
         // Cleaners
         else if (categories[2].includes(input.value.toLowerCase())) {
+            //category = 'cleaners';
             focusList = cleanersList;
             focusStore = cleanersStore;
         }
         // Dairy
         else if (categories[3].includes(input.value.toLowerCase())) {
+            //category = 'dairy';
             focusList = dairyList;
             focusStore = dairyStore;
         }
         // Dry / Baking Goods
         else if (categories[4].includes(input.value.toLowerCase())) {
+            //category = 'dry';
             focusList = dryList;
-            focusStore = dryStore;
+            focusStore = dryShow;
         }
         // Frozen
         else if (categories[5].includes(input.value.toLowerCase())) {
+            //category = 'frozen';
             focusList = frozenList;
             focusStore = frozenStore;
         }
         // Fruit & Veg
         else if (categories[6].includes(input.value.toLowerCase())) {
+           // category = 'produce';
             focusList = produceList;
             focusStore = produceStore;
         }
         // Health
         else if (categories[7].includes(input.value.toLowerCase())) {
+            //category = 'health';
             focusList = healthList;
             focusStore = healthStore;
         }
         // Meat
         else if (categories[8].includes(input.value.toLowerCase())) {
+           // category = 'meat';
             focusList = meatList;
             focusStore = meatStore;
         }
         // Paper Goods
         else if (categories[9].includes(input.value.toLowerCase())) {
+           // category = 'paper';
             focusList = paperList;
             focusStore = paperStore;
         }
         // Personal Care
         else if (categories[10].includes(input.value.toLowerCase())) {
+            //category = 'care';
             focusList = careList;
             focusStore = careStore;
         }
         // Tinned & Jarred
         else if (categories[11].includes(input.value.toLowerCase())) {
+           // category = 'tin';
             focusList = tinList;
             focusStore = tinStore;
         }
         // Other
         else {
+            //category = 'other';
             focusList = otherList;
             focusStore = otherStore;
         }
@@ -204,26 +242,41 @@ function addItem(input) {
         document.getElementById("input").focus();
     }
 
+
     focusList.style.display = "block";
-    focusStore.push(input.value)
+    // focusStore.push(input.value);
+    //localStorage.setItem([focusList.id], JSON.stringify(focusStore))
+
+    focusStore.push([input.value, checked, identifier]);
     localStorage.setItem(focusList.id, JSON.stringify(focusStore))
 
-    liMaker(input.value);
+    liMaker(input.value, checked, identifier);
     input.value = '';
     document.getElementById("input").focus();
     randPlaceholder();
 }
 
+/*
+const { beverages, bread, cleaners, dairy, dry, frozen, produce, health, meat, paper, care, tin, other } = storedItemsData.reduce((r, [item, type]) => {
+    r[type] = r[type] || [];
+    r[type].push(item)
+    return r;
+}, {})
+*/
+
+
+
+
 // in general
-const liMaker = text => {
-    //var d = new Date();
-    //var m = d.getTime();
+const liMaker = (text, checked, identifier) => {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text}')`);
-    li.setAttribute("id", `${text}`);
-    label.setAttribute("id", `${text}-label`);
+    li.setAttribute("onclick", `selectItem('${identifier}')`);
+    label.classList.add(checked);
     focusList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text}`));
@@ -231,16 +284,20 @@ const liMaker = text => {
     focusList.appendChild(br);
 }
 
+
 // beverages
-const beveragesMaker = text => {
+const beveragesMaker = (text) => {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text}')`);
-    li.setAttribute("id", `${text}`);
+    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    label.classList.add(text[1]);
     beveragesList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(`${text}`));
+    label.appendChild(document.createTextNode(`${text[0]}`));
     var br = document.createElement("br");
     beveragesList.appendChild(br);
 }
@@ -249,6 +306,8 @@ beveragesData.forEach(item => {
     beveragesMaker(item)
 })
 
+
+/*
 // bread
 const breadMaker = text => {
     var label = document.createElement("LABEL");
@@ -256,6 +315,7 @@ const breadMaker = text => {
     li.setAttribute("type", "checkbox");
     li.setAttribute("onclick", `selectItem('${text}')`);
     li.setAttribute("id", `${text}`);
+    label.setAttribute("id", `${text}-label`);
     breadList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text}`));
@@ -274,6 +334,7 @@ const cleanersMaker = text => {
     li.setAttribute("type", "checkbox");
     li.setAttribute("onclick", `selectItem('${text}')`);
     li.setAttribute("id", `${text}`);
+    label.setAttribute("id", `${text}-label`);
     cleanersList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text}`));
@@ -292,6 +353,7 @@ const dairyMaker = text => {
     li.setAttribute("type", "checkbox");
     li.setAttribute("onclick", `selectItem('${text}')`);
     li.setAttribute("id", `${text}`);
+    label.setAttribute("id", `${text}-label`);
     dairyList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text}`));
@@ -310,6 +372,7 @@ const dryMaker = text => {
     li.setAttribute("type", "checkbox");
     li.setAttribute("onclick", `selectItem('${text}')`);
     li.setAttribute("id", `${text}`);
+    label.setAttribute("id", `${text}-label`);
     dryList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text}`));
@@ -328,6 +391,7 @@ const frozenMaker = text => {
     li.setAttribute("type", "checkbox");
     li.setAttribute("onclick", `selectItem('${text}')`);
     li.setAttribute("id", `${text}`);
+    label.setAttribute("id", `${text}-label`);
     frozenList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text}`));
@@ -346,6 +410,7 @@ const produceMaker = text => {
     li.setAttribute("type", "checkbox");
     li.setAttribute("onclick", `selectItem('${text}')`);
     li.setAttribute("id", `${text}`);
+    label.setAttribute("id", `${text}-label`);
     produceList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text}`));
@@ -364,6 +429,7 @@ const healthMaker = text => {
     li.setAttribute("type", "checkbox");
     li.setAttribute("onclick", `selectItem('${text}')`);
     li.setAttribute("id", `${text}`);
+    label.setAttribute("id", `${text}-label`);
     healthList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text}`));
@@ -382,6 +448,7 @@ const meatMaker = text => {
     li.setAttribute("type", "checkbox");
     li.setAttribute("onclick", `selectItem('${text}')`);
     li.setAttribute("id", `${text}`);
+    label.setAttribute("id", `${text}-label`);
     meatList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text}`));
@@ -400,6 +467,7 @@ const paperMaker = text => {
     li.setAttribute("type", "checkbox");
     li.setAttribute("onclick", `selectItem('${text}')`);
     li.setAttribute("id", `${text}`);
+    label.setAttribute("id", `${text}-label`);
     paperList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text}`));
@@ -418,6 +486,7 @@ const careMaker = text => {
     li.setAttribute("type", "checkbox");
     li.setAttribute("onclick", `selectItem('${text}')`);
     li.setAttribute("id", `${text}`);
+    label.setAttribute("id", `${text}-label`);
     careList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text}`));
@@ -436,6 +505,7 @@ const tinMaker = text => {
     li.setAttribute("type", "checkbox");
     li.setAttribute("onclick", `selectItem('${text}')`);
     li.setAttribute("id", `${text}`);
+    label.setAttribute("id", `${text}-label`);
     tinList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text}`));
@@ -454,6 +524,7 @@ const otherMaker = text => {
     li.setAttribute("type", "checkbox");
     li.setAttribute("onclick", `selectItem('${text}')`);
     li.setAttribute("id", `${text}`);
+    label.setAttribute("id", `${text}-label`);
     otherList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text}`));
@@ -464,6 +535,7 @@ const otherMaker = text => {
 otherData.forEach(item => {
     otherMaker(item)
 })
+*/
 
 function randPlaceholder() {
     let randItem = Math.floor(Math.random() * (concatCategories.length));
@@ -571,9 +643,9 @@ function autocomplete(inp, arr) {
 
 autocomplete(document.getElementById("input"), concatCategories);
 
+/*
 function selectItem(text) {
     var checkboxItem = document.getElementById(`${text}`);
-    var checkboxLabel = document.getElementById(`${text}-label`);
     if (checkboxItem.checked == true) {
         checkboxLabel.style.textDecoration = "line-through";
         console.log(`${text} selected`);
@@ -583,3 +655,4 @@ function selectItem(text) {
         console.log(`${text} deselected`);
     }
 }
+*/
