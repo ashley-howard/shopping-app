@@ -165,7 +165,7 @@ function addItem(input) {
         }
         // Bread
         else if (categories[1].includes(input.value.toLowerCase())) {
-           // category = 'bread';
+            // category = 'bread';
             focusList = breadList;
             focusStore = breadStore;
         }
@@ -185,7 +185,7 @@ function addItem(input) {
         else if (categories[4].includes(input.value.toLowerCase())) {
             //category = 'dry';
             focusList = dryList;
-            focusStore = dryShow;
+            focusStore = dryStore;
         }
         // Frozen
         else if (categories[5].includes(input.value.toLowerCase())) {
@@ -195,7 +195,7 @@ function addItem(input) {
         }
         // Fruit & Veg
         else if (categories[6].includes(input.value.toLowerCase())) {
-           // category = 'produce';
+            // category = 'produce';
             focusList = produceList;
             focusStore = produceStore;
         }
@@ -207,13 +207,13 @@ function addItem(input) {
         }
         // Meat
         else if (categories[8].includes(input.value.toLowerCase())) {
-           // category = 'meat';
+            // category = 'meat';
             focusList = meatList;
             focusStore = meatStore;
         }
         // Paper Goods
         else if (categories[9].includes(input.value.toLowerCase())) {
-           // category = 'paper';
+            // category = 'paper';
             focusList = paperList;
             focusStore = paperStore;
         }
@@ -225,7 +225,7 @@ function addItem(input) {
         }
         // Tinned & Jarred
         else if (categories[11].includes(input.value.toLowerCase())) {
-           // category = 'tin';
+            // category = 'tin';
             focusList = tinList;
             focusStore = tinStore;
         }
@@ -307,18 +307,20 @@ beveragesData.forEach(item => {
 })
 
 
-/*
+
 // bread
-const breadMaker = text => {
+const breadMaker = (text) => {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text}')`);
-    li.setAttribute("id", `${text}`);
-    label.setAttribute("id", `${text}-label`);
+    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    label.classList.add(text[1]);
     breadList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(`${text}`));
+    label.appendChild(document.createTextNode(`${text[0]}`));
     var br = document.createElement("br");
     breadList.appendChild(br);
 }
@@ -327,17 +329,21 @@ breadData.forEach(item => {
     breadMaker(item)
 })
 
+
+
 // cleaners
-const cleanersMaker = text => {
+const cleanersMaker = (text) => {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text}')`);
-    li.setAttribute("id", `${text}`);
-    label.setAttribute("id", `${text}-label`);
+    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    label.classList.add(text[1]);
     cleanersList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(`${text}`));
+    label.appendChild(document.createTextNode(`${text[0]}`));
     var br = document.createElement("br");
     cleanersList.appendChild(br);
 }
@@ -347,16 +353,18 @@ cleanersData.forEach(item => {
 })
 
 // dairy
-const dairyMaker = text => {
+const dairyMaker = (text) => {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text}')`);
-    li.setAttribute("id", `${text}`);
-    label.setAttribute("id", `${text}-label`);
+    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    label.classList.add(text[1]);
     dairyList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(`${text}`));
+    label.appendChild(document.createTextNode(`${text[0]}`));
     var br = document.createElement("br");
     dairyList.appendChild(br);
 }
@@ -366,16 +374,18 @@ dairyData.forEach(item => {
 })
 
 // dry
-const dryMaker = text => {
+const dryMaker = (text) => {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text}')`);
-    li.setAttribute("id", `${text}`);
-    label.setAttribute("id", `${text}-label`);
+    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    label.classList.add(text[1]);
     dryList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(`${text}`));
+    label.appendChild(document.createTextNode(`${text[0]}`));
     var br = document.createElement("br");
     dryList.appendChild(br);
 }
@@ -385,16 +395,18 @@ dryData.forEach(item => {
 })
 
 // frozen
-const frozenMaker = text => {
+const frozenMaker = (text) => {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text}')`);
-    li.setAttribute("id", `${text}`);
-    label.setAttribute("id", `${text}-label`);
+    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    label.classList.add(text[1]);
     frozenList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(`${text}`));
+    label.appendChild(document.createTextNode(`${text[0]}`));
     var br = document.createElement("br");
     frozenList.appendChild(br);
 }
@@ -404,16 +416,18 @@ frozenData.forEach(item => {
 })
 
 // produce
-const produceMaker = text => {
+const produceMaker = (text) => {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text}')`);
-    li.setAttribute("id", `${text}`);
-    label.setAttribute("id", `${text}-label`);
+    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    label.classList.add(text[1]);
     produceList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(`${text}`));
+    label.appendChild(document.createTextNode(`${text[0]}`));
     var br = document.createElement("br");
     produceList.appendChild(br);
 }
@@ -423,16 +437,18 @@ produceData.forEach(item => {
 })
 
 // health
-const healthMaker = text => {
+const healthMaker = (text) => {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text}')`);
-    li.setAttribute("id", `${text}`);
-    label.setAttribute("id", `${text}-label`);
+    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    label.classList.add(text[1]);
     healthList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(`${text}`));
+    label.appendChild(document.createTextNode(`${text[0]}`));
     var br = document.createElement("br");
     healthList.appendChild(br);
 }
@@ -442,16 +458,18 @@ healthData.forEach(item => {
 })
 
 // meat
-const meatMaker = text => {
+const meatMaker = (text) => {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text}')`);
-    li.setAttribute("id", `${text}`);
-    label.setAttribute("id", `${text}-label`);
+    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    label.classList.add(text[1]);
     meatList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(`${text}`));
+    label.appendChild(document.createTextNode(`${text[0]}`));
     var br = document.createElement("br");
     meatList.appendChild(br);
 }
@@ -461,16 +479,18 @@ meatData.forEach(item => {
 })
 
 // paper
-const paperMaker = text => {
+const paperMaker = (text) => {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text}')`);
-    li.setAttribute("id", `${text}`);
-    label.setAttribute("id", `${text}-label`);
+    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    label.classList.add(text[1]);
     paperList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(`${text}`));
+    label.appendChild(document.createTextNode(`${text[0]}`));
     var br = document.createElement("br");
     paperList.appendChild(br);
 }
@@ -480,16 +500,18 @@ paperData.forEach(item => {
 })
 
 // care
-const careMaker = text => {
+const careMaker = (text) => {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text}')`);
-    li.setAttribute("id", `${text}`);
-    label.setAttribute("id", `${text}-label`);
+    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    label.classList.add(text[1]);
     careList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(`${text}`));
+    label.appendChild(document.createTextNode(`${text[0]}`));
     var br = document.createElement("br");
     careList.appendChild(br);
 }
@@ -499,16 +521,18 @@ careData.forEach(item => {
 })
 
 // tin
-const tinMaker = text => {
+const tinMaker = (text) => {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text}')`);
-    li.setAttribute("id", `${text}`);
-    label.setAttribute("id", `${text}-label`);
+    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    label.classList.add(text[1]);
     tinList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(`${text}`));
+    label.appendChild(document.createTextNode(`${text[0]}`));
     var br = document.createElement("br");
     tinList.appendChild(br);
 }
@@ -518,16 +542,18 @@ tinData.forEach(item => {
 })
 
 // other
-const otherMaker = text => {
+const otherMaker = (text) => {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text}')`);
-    li.setAttribute("id", `${text}`);
-    label.setAttribute("id", `${text}-label`);
+    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    label.classList.add(text[1]);
     otherList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(`${text}`));
+    label.appendChild(document.createTextNode(`${text[0]}`));
     var br = document.createElement("br");
     otherList.appendChild(br);
 }
@@ -535,7 +561,7 @@ const otherMaker = text => {
 otherData.forEach(item => {
     otherMaker(item)
 })
-*/
+
 
 function randPlaceholder() {
     let randItem = Math.floor(Math.random() * (concatCategories.length));
