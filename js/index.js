@@ -1,6 +1,7 @@
 const input = document.getElementById('input');
 const checkboxItems = document.getElementById('checkbox-item');
 
+
 // Enter key
 document.getElementById("input")
     .addEventListener("keyup", function (event) {
@@ -215,13 +216,16 @@ function addItem(input) {
 
 // in general
 const liMaker = text => {
+    //var d = new Date();
+    //var m = d.getTime();
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    label.setAttribute("id", "checkbox-item");
+    li.setAttribute("onclick", `selectItem('${text}')`);
+    li.setAttribute("id", `${text}`);
     focusList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`)); 
+    label.appendChild(document.createTextNode(` ${text}`));
     var br = document.createElement("br");
     focusList.appendChild(br);
 }
@@ -231,10 +235,11 @@ const beveragesMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    label.setAttribute("id", "checkbox-item");
+    li.setAttribute("onclick", `selectItem('${text}')`);
+    li.setAttribute("id", `${text}`);
     beveragesList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`)); 
+    label.appendChild(document.createTextNode(` ${text}`));
     var br = document.createElement("br");
     beveragesList.appendChild(br);
 }
@@ -248,10 +253,11 @@ const breadMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    label.setAttribute("id", "checkbox-item");
+    li.setAttribute("onclick", `selectItem('${text}')`);
+    li.setAttribute("id", `${text}`);
     breadList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`)); 
+    label.appendChild(document.createTextNode(` ${text}`));
     var br = document.createElement("br");
     breadList.appendChild(br);
 }
@@ -265,10 +271,11 @@ const cleanersMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    label.setAttribute("id", "checkbox-item");
+    li.setAttribute("onclick", `selectItem('${text}')`);
+    li.setAttribute("id", `${text}`);
     cleanersList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`)); 
+    label.appendChild(document.createTextNode(` ${text}`));
     var br = document.createElement("br");
     cleanersList.appendChild(br);
 }
@@ -282,10 +289,11 @@ const dairyMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    label.setAttribute("id", "checkbox-item");
+    li.setAttribute("onclick", `selectItem('${text}')`);
+    li.setAttribute("id", `${text}`);
     dairyList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`)); 
+    label.appendChild(document.createTextNode(` ${text}`));
     var br = document.createElement("br");
     dairyList.appendChild(br);
 }
@@ -299,10 +307,11 @@ const dryMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    label.setAttribute("id", "checkbox-item");
+    li.setAttribute("onclick", `selectItem('${text}')`);
+    li.setAttribute("id", `${text}`);
     dryList.appendChild(label);
-    label.appendChild(li);    
-    label.appendChild(document.createTextNode(` ${text}`)); 
+    label.appendChild(li);
+    label.appendChild(document.createTextNode(` ${text}`));
     var br = document.createElement("br");
     dryList.appendChild(br);
 }
@@ -316,10 +325,11 @@ const frozenMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    label.setAttribute("id", "checkbox-item");
+    li.setAttribute("onclick", `selectItem('${text}')`);
+    li.setAttribute("id", `${text}`);
     frozenList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`)); 
+    label.appendChild(document.createTextNode(` ${text}`));
     var br = document.createElement("br");
     frozenList.appendChild(br);
 }
@@ -333,10 +343,11 @@ const produceMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    label.setAttribute("id", "checkbox-item");
+    li.setAttribute("onclick", `selectItem('${text}')`);
+    li.setAttribute("id", `${text}`);
     produceList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`)); 
+    label.appendChild(document.createTextNode(` ${text}`));
     var br = document.createElement("br");
     produceList.appendChild(br);
 }
@@ -350,10 +361,11 @@ const healthMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    label.setAttribute("id", "checkbox-item");
+    li.setAttribute("onclick", `selectItem('${text}')`);
+    li.setAttribute("id", `${text}`);
     healthList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`)); 
+    label.appendChild(document.createTextNode(` ${text}`));
     var br = document.createElement("br");
     healthList.appendChild(br);
 }
@@ -367,10 +379,11 @@ const meatMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    label.setAttribute("id", "checkbox-item");
+    li.setAttribute("onclick", `selectItem('${text}')`);
+    li.setAttribute("id", `${text}`);
     meatList.appendChild(label);
-    label.appendChild(li);   
-    label.appendChild(document.createTextNode(` ${text}`)); 
+    label.appendChild(li);
+    label.appendChild(document.createTextNode(` ${text}`));
     var br = document.createElement("br");
     meatList.appendChild(br);
 }
@@ -384,10 +397,11 @@ const paperMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    label.setAttribute("id", "checkbox-item");
+    li.setAttribute("onclick", `selectItem('${text}')`);
+    li.setAttribute("id", `${text}`);
     paperList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`)); 
+    label.appendChild(document.createTextNode(` ${text}`));
     var br = document.createElement("br");
     paperList.appendChild(br);
 }
@@ -401,10 +415,11 @@ const careMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    label.setAttribute("id", "checkbox-item");
+    li.setAttribute("onclick", `selectItem('${text}')`);
+    li.setAttribute("id", `${text}`);
     careList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`)); 
+    label.appendChild(document.createTextNode(` ${text}`));
     var br = document.createElement("br");
     careList.appendChild(br);
 }
@@ -418,10 +433,11 @@ const tinMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    label.setAttribute("id", "checkbox-item");
+    li.setAttribute("onclick", `selectItem('${text}')`);
+    li.setAttribute("id", `${text}`);
     tinList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`)); 
+    label.appendChild(document.createTextNode(` ${text}`));
     var br = document.createElement("br");
     tinList.appendChild(br);
 }
@@ -435,10 +451,11 @@ const otherMaker = text => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    label.setAttribute("id", "checkbox-item");
+    li.setAttribute("onclick", `selectItem('${text}')`);
+    li.setAttribute("id", `${text}`);
     otherList.appendChild(label);
     label.appendChild(li);
-    label.appendChild(document.createTextNode(` ${text}`)); 
+    label.appendChild(document.createTextNode(` ${text}`));
     var br = document.createElement("br");
     otherList.appendChild(br);
 }
@@ -553,9 +570,11 @@ function autocomplete(inp, arr) {
 
 autocomplete(document.getElementById("input"), concatCategories);
 
-function finishRemove(){
- if (checkboxItems.checked){
-
- }
-
+function selectItem(text) {
+    var checkboxItem = document.getElementById(`${text}`);
+    if (checkboxItem.checked == true) {
+        console.log(`${text} selected`);
+    } else {
+        console.log(`${text} deselected`);
+    }
 }
