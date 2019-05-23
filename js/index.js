@@ -154,6 +154,7 @@ function addItem(input) {
     var checked = 'unchecked';
     var d = new Date();
     var identifier = d.getTime();
+    var position = 0;
 
     if (input.value !== '') {
         // Beverages
@@ -162,78 +163,91 @@ function addItem(input) {
             focusList = beveragesList;
             focusStore = beveragesStore;
 
+
         }
         // Bread
         else if (categories[1].includes(input.value.toLowerCase())) {
             // category = 'bread';
             focusList = breadList;
             focusStore = breadStore;
+            //  position = breadData.length;
         }
         // Cleaners
         else if (categories[2].includes(input.value.toLowerCase())) {
             //category = 'cleaners';
             focusList = cleanersList;
             focusStore = cleanersStore;
+            //  position = cleanersData.length;
         }
         // Dairy
         else if (categories[3].includes(input.value.toLowerCase())) {
             //category = 'dairy';
             focusList = dairyList;
             focusStore = dairyStore;
+            //  position = dairyData.length;
         }
         // Dry / Baking Goods
         else if (categories[4].includes(input.value.toLowerCase())) {
             //category = 'dry';
             focusList = dryList;
             focusStore = dryStore;
+            //  position = dryData.length;
         }
         // Frozen
         else if (categories[5].includes(input.value.toLowerCase())) {
             //category = 'frozen';
             focusList = frozenList;
             focusStore = frozenStore;
+            //   position = frozenData.length;
         }
         // Fruit & Veg
         else if (categories[6].includes(input.value.toLowerCase())) {
             // category = 'produce';
             focusList = produceList;
             focusStore = produceStore;
+            //   position = produceData.length;
         }
         // Health
         else if (categories[7].includes(input.value.toLowerCase())) {
             //category = 'health';
             focusList = healthList;
             focusStore = healthStore;
+            //  position = healthData.length;
         }
         // Meat
         else if (categories[8].includes(input.value.toLowerCase())) {
             // category = 'meat';
             focusList = meatList;
             focusStore = meatStore;
+            // position = meatData.length;
         }
         // Paper Goods
         else if (categories[9].includes(input.value.toLowerCase())) {
             // category = 'paper';
             focusList = paperList;
             focusStore = paperStore;
+            //   position = paperData.length;
         }
         // Personal Care
         else if (categories[10].includes(input.value.toLowerCase())) {
             //category = 'care';
             focusList = careList;
             focusStore = careStore;
+            //   position = careData.length;
         }
         // Tinned & Jarred
         else if (categories[11].includes(input.value.toLowerCase())) {
             // category = 'tin';
             focusList = tinList;
             focusStore = tinStore;
+            //    position = tinData.length;
         }
         // Other
         else {
             //category = 'other';
             focusList = otherList;
             focusStore = otherStore;
+            //   position = otherData.length;
         }
     }
     // Empty
@@ -246,11 +260,11 @@ function addItem(input) {
     focusList.style.display = "block";
     // focusStore.push(input.value);
     //localStorage.setItem([focusList.id], JSON.stringify(focusStore))
-
-    focusStore.push([input.value, checked, identifier]);
+    position = focusStore.length;
+    focusStore.push([input.value, checked, identifier, position]);
     localStorage.setItem(focusList.id, JSON.stringify(focusStore))
 
-    liMaker(input.value, checked, identifier);
+    liMaker(input.value, checked, identifier, position);
     input.value = '';
     document.getElementById("input").focus();
     randPlaceholder();
@@ -268,17 +282,14 @@ const { beverages, bread, cleaners, dairy, dry, frozen, produce, health, meat, p
 
 
 // in general
-const liMaker = (text, checked, identifier) => {
-    //  text[0] = text
-    //  text[1] = checked
-    //  text[2] = identifier
+const liMaker = (text, checked, identifier, position) => {
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${identifier}')`);
+    li.setAttribute("onclick", `selectItem(["${text}", "${checked}", ${identifier}, ${position}])`);
     li.setAttribute("id", `input-${identifier}`);
     label.classList.add(checked);
-    label.setAttribute("id", identifier);
+    label.setAttribute("id", `${text}-${position}`);
     focusList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text}`));
@@ -292,13 +303,14 @@ const beveragesMaker = (text) => {
     //  text[0] = text
     //  text[1] = checked
     //  text[2] = identifier
+    //  text[3] = position
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    li.setAttribute("onclick", `selectItem(["${text[0]}", "${text[1]}", ${text[2]}, ${text[3]}])`);
     li.setAttribute("id", `input-${text[2]}`);
-    label.setAttribute("id", text[2]);
     label.classList.add(text[1]);
+    label.setAttribute("id", `${text[0]}-${text[3]}`);
     beveragesList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text[0]}`));
@@ -317,13 +329,14 @@ const breadMaker = (text) => {
     //  text[0] = text
     //  text[1] = checked
     //  text[2] = identifier
+    //  text[3] = position
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    li.setAttribute("onclick", `selectItem(["${text[0]}", "${text[1]}", ${text[2]}, ${text[3]}])`);
     li.setAttribute("id", `input-${text[2]}`);
-    label.setAttribute("id", text[2]);
     label.classList.add(text[1]);
+    label.setAttribute("id", `${text[0]}-${text[3]}`);
     breadList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text[0]}`));
@@ -342,13 +355,14 @@ const cleanersMaker = (text) => {
     //  text[0] = text
     //  text[1] = checked
     //  text[2] = identifier
+    //  text[3] = position
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    li.setAttribute("onclick", `selectItem(["${text[0]}", "${text[1]}", ${text[2]}, ${text[3]}])`);
     li.setAttribute("id", `input-${text[2]}`);
-    label.setAttribute("id", text[2]);
     label.classList.add(text[1]);
+    label.setAttribute("id", `${text[0]}-${text[3]}`);
     cleanersList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text[0]}`));
@@ -365,13 +379,14 @@ const dairyMaker = (text) => {
     //  text[0] = text
     //  text[1] = checked
     //  text[2] = identifier
+    //  text[3] = position
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    li.setAttribute("onclick", `selectItem(["${text[0]}", "${text[1]}", ${text[2]}, ${text[3]}])`);
     li.setAttribute("id", `input-${text[2]}`);
-    label.setAttribute("id", text[2]);
     label.classList.add(text[1]);
+    label.setAttribute("id", `${text[0]}-${text[3]}`);
     dairyList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text[0]}`));
@@ -388,13 +403,14 @@ const dryMaker = (text) => {
     //  text[0] = text
     //  text[1] = checked
     //  text[2] = identifier
+    //  text[3] = position
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    li.setAttribute("onclick", `selectItem(["${text[0]}", "${text[1]}", ${text[2]}, ${text[3]}])`);
     li.setAttribute("id", `input-${text[2]}`);
-    label.setAttribute("id", text[2]);
     label.classList.add(text[1]);
+    label.setAttribute("id", `${text[0]}-${text[3]}`);
     dryList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text[0]}`));
@@ -411,13 +427,14 @@ const frozenMaker = (text) => {
     //  text[0] = text
     //  text[1] = checked
     //  text[2] = identifier
+    //  text[3] = position
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    li.setAttribute("onclick", `selectItem(["${text[0]}", "${text[1]}", ${text[2]}, ${text[3]}])`);
     li.setAttribute("id", `input-${text[2]}`);
-    label.setAttribute("id", text[2]);
     label.classList.add(text[1]);
+    label.setAttribute("id", `${text[0]}-${text[3]}`);
     frozenList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text[0]}`));
@@ -434,13 +451,14 @@ const produceMaker = (text) => {
     //  text[0] = text
     //  text[1] = checked
     //  text[2] = identifier
+    //  text[3] = position
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    li.setAttribute("onclick", `selectItem(["${text[0]}", "${text[1]}", ${text[2]}, ${text[3]}])`);
     li.setAttribute("id", `input-${text[2]}`);
-    label.setAttribute("id", text[2]);
     label.classList.add(text[1]);
+    label.setAttribute("id", `${text[0]}-${text[3]}`);
     produceList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text[0]}`));
@@ -457,13 +475,14 @@ const healthMaker = (text) => {
     //  text[0] = text
     //  text[1] = checked
     //  text[2] = identifier
+    //  text[3] = position
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    li.setAttribute("onclick", `selectItem(["${text[0]}", "${text[1]}", ${text[2]}, ${text[3]}])`);
     li.setAttribute("id", `input-${text[2]}`);
-    label.setAttribute("id", text[2]);
     label.classList.add(text[1]);
+    label.setAttribute("id", `${text[0]}-${text[3]}`);
     healthList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text[0]}`));
@@ -480,13 +499,14 @@ const meatMaker = (text) => {
     //  text[0] = text
     //  text[1] = checked
     //  text[2] = identifier
+    //  text[3] = position
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    li.setAttribute("onclick", `selectItem(["${text[0]}", "${text[1]}", ${text[2]}, ${text[3]}])`);
     li.setAttribute("id", `input-${text[2]}`);
-    label.setAttribute("id", text[2]);
     label.classList.add(text[1]);
+    label.setAttribute("id", `${text[0]}-${text[3]}`);
     meatList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text[0]}`));
@@ -503,13 +523,14 @@ const paperMaker = (text) => {
     //  text[0] = text
     //  text[1] = checked
     //  text[2] = identifier
+    //  text[3] = position
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    li.setAttribute("onclick", `selectItem(["${text[0]}", "${text[1]}", ${text[2]}, ${text[3]}])`);
     li.setAttribute("id", `input-${text[2]}`);
-    label.setAttribute("id", text[2]);
     label.classList.add(text[1]);
+    label.setAttribute("id", `${text[0]}-${text[3]}`);
     paperList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text[0]}`));
@@ -526,13 +547,14 @@ const careMaker = (text) => {
     //  text[0] = text
     //  text[1] = checked
     //  text[2] = identifier
+    //  text[3] = position
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    li.setAttribute("onclick", `selectItem(["${text[0]}", "${text[1]}", ${text[2]}, ${text[3]}])`);
     li.setAttribute("id", `input-${text[2]}`);
-    label.setAttribute("id", text[2]);
     label.classList.add(text[1]);
+    label.setAttribute("id", `${text[0]}-${text[3]}`);
     careList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text[0]}`));
@@ -549,13 +571,14 @@ const tinMaker = (text) => {
     //  text[0] = text
     //  text[1] = checked
     //  text[2] = identifier
+    //  text[3] = position
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    li.setAttribute("onclick", `selectItem(["${text[0]}", "${text[1]}", ${text[2]}, ${text[3]}])`);
     li.setAttribute("id", `input-${text[2]}`);
-    label.setAttribute("id", text[2]);
     label.classList.add(text[1]);
+    label.setAttribute("id", `${text[0]}-${text[3]}`);
     tinList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text[0]}`));
@@ -572,13 +595,14 @@ const otherMaker = (text) => {
     //  text[0] = text
     //  text[1] = checked
     //  text[2] = identifier
+    //  text[3] = position
     var label = document.createElement("LABEL");
     var li = document.createElement("INPUT");
     li.setAttribute("type", "checkbox");
-    li.setAttribute("onclick", `selectItem('${text[2]}')`);
+    li.setAttribute("onclick", `selectItem(["${text[0]}", "${text[1]}", ${text[2]}, ${text[3]}])`);
     li.setAttribute("id", `input-${text[2]}`);
-    label.setAttribute("id", text[2]);
     label.classList.add(text[1]);
+    label.setAttribute("id", `${text[0]}-${text[3]}`);
     otherList.appendChild(label);
     label.appendChild(li);
     label.appendChild(document.createTextNode(`${text[0]}`));
@@ -697,11 +721,12 @@ function autocomplete(inp, arr) {
 
 autocomplete(document.getElementById("input"), concatCategories);
 
+/*
+function selectItem(text, checked, identifier, position) {
+ //   var checkboxItem = document.getElementById(`input-${identifier}`);
+   // var checkboxLabel = document.getElementById(identifier);
+  //  getId = checkboxLabel.parentElement.id; // gets ID
 
-function selectItem(identifier) {
-    var checkboxItem = document.getElementById(`input-${identifier}`);
-    var checkboxLabel = document.getElementById(identifier);
-    getId = checkboxLabel.parentElement.id; // gets ID
 
     if (checkboxItem.checked == true) {
         checkboxLabel.style.textDecoration = "line-through";
@@ -710,5 +735,29 @@ function selectItem(identifier) {
     } else {
         checkboxLabel.style.textDecoration = "none";
         console.log(`"${checkboxItem.nextSibling.nodeValue}" "${getId}" "${identifier}" deselected`);
+    }
+}
+*/
+
+
+function selectItem(text) {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
+    //  text[3] = position
+    var checkboxItem = document.getElementById(`input-${text[2]}`);
+    var checkboxLabel = document.getElementById(`${text[0]}-${text[3]}`);
+    getId = checkboxLabel.parentElement.id; // gets ID
+
+
+    if (checkboxItem.checked == true) {
+        checkboxLabel.style.textDecoration = "line-through";
+        // console.log(`Item: "${text[0]}", Category: "${getId}", Checked: "${text[1]}", Identifier: "${text[2]}", Position: "${text[3]}" selected`);
+        console.log(`${getId}[${text[3]}]: "${text[0]}" SELECTED`);
+
+    } else {
+        checkboxLabel.style.textDecoration = "none";
+        //  console.log(`Item: "${text[0]}", Category: "${getId}", Checked: "${text[1]}", Identifier: "${text[2]}", Position: "${text[3]}" deselected`);
+        console.log(`${getId}[${text[3]}]: "${text[0]}" DESELECTED`);
     }
 }
