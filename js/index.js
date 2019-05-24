@@ -22,9 +22,9 @@ var categories = [
     // Alcoholic Beverages
     ["beer", "wine", "cider", "aperol"],
     // Non-alcoholic Beverages
-    ["coke", "pepsi", "water", "fruit juice"],
+    ["coke", "pepsi", "water", "fruit juice", "diet coke", "diet pepsi", "orange juice", "apple juice", "pear juice", "pineapple juice"],
     // Hot Beverages
-    ["coffee", "tea", "hot chocolate"],
+    ["coffee", "tea", "hot chocolate", "decaf coffee", "decaf tea", "herbal tea", "green tea", "breakfast tea", "black tea"],
     // Bakery
     ["ciabatta", "baguette", "bagels", "bread", "white bread", "brown bread", "wholemeal bread", "donut"],
     // Baking
@@ -36,13 +36,13 @@ var categories = [
     // Confectionary
     ["chocolates", "chocolate bar"],
     // Dairy and eggs
-    ["milk", "butter", "yogurt", "eggs"],
+    ["milk", "butter", "yogurt", "eggs", "cheese"],
     // Delicatessen
-    ["pizza, chilled"],
+    ["pizza (chilled)"],
     // Fish and seafood
-    ["salmon"],
+    ["fish", "salmon"],
     // Frozen
-    ["pizza, frozen", "peas, frozen", "vegetables, frozen"],
+    ["pizza (frozen)", "peas (frozen)", "vegetables (frozen)"],
     // Health
     ["vitamins"],
     // Household
@@ -50,7 +50,9 @@ var categories = [
     // Meat
     ["prosciutto crudo", "prosciutto cotto", "pancetta"],
     // Nuts and snacking fruits
-    ["walnuts", "dried fruit"],
+    ["nuts", "walnuts", "dried fruit"],
+    // Pasta and rice
+    ["pasta", "spaghetti", "rice", "couscous"],
     // Paper and plastic
     ["towels", "paper", "napkins"],
     // Personal Care
@@ -62,7 +64,7 @@ var categories = [
     // Spreads
     ["nutella", "jam"],
     // Tins and Jars
-    ["peas, tinned", "tuna", "olives", "anchovies", "chickpeas, tinned"]
+    ["peas (tinned)", "tuna", "olives", "anchovies", "chickpeas (tinned)"]
 ]
 
 var concatCategories = categories.flat();
@@ -84,17 +86,17 @@ let alcoholicStore = localStorage.getItem('alcoholic') ? JSON.parse(localStorage
 localStorage.setItem('alcoholic', JSON.stringify(alcoholicStore));
 const alcoholicData = JSON.parse(localStorage.getItem('alcoholic'));
 
-const nonAlcoholicList = document.getElementById("non-alcoholic");
-let nonAlcoholicShow = (localStorage.getItem('non-alcoholic') != "[]") ? nonAlcoholicList.style.display = "block" : nonAlcoholicList.style.display = "none";
-let nonAlcoholicStore = localStorage.getItem('non-alcoholic') ? JSON.parse(localStorage.getItem('non-alcoholic')) : [];
-localStorage.setItem('non-alcoholic', JSON.stringify(nonAlcoholicStore));
-const nonAlcoholicData = JSON.parse(localStorage.getItem('non-alcoholic'));
+const nonAlcoholicList = document.getElementById("nonAlcoholic");
+let nonAlcoholicShow = (localStorage.getItem('nonAlcoholic') != "[]") ? nonAlcoholicList.style.display = "block" : nonAlcoholicList.style.display = "none";
+let nonAlcoholicStore = localStorage.getItem('nonAlcoholic') ? JSON.parse(localStorage.getItem('nonAlcoholic')) : [];
+localStorage.setItem('nonAlcoholic', JSON.stringify(nonAlcoholicStore));
+const nonAlcoholicData = JSON.parse(localStorage.getItem('nonAlcoholic'));
 
-const hotBeveragesList = document.getElementById("hot-beverages");
-let hotBeveragesShow = (localStorage.getItem('hot-beverages') != "[]") ? hotBeveragesList.style.display = "block" : hotBeveragesList.style.display = "none";
-let hotBeveragesStore = localStorage.getItem('hot-beverages') ? JSON.parse(localStorage.getItem('hot-beverages')) : [];
-localStorage.setItem('hot-beverages', JSON.stringify(hotBeveragesStore));
-const hotBeveragesData = JSON.parse(localStorage.getItem('hot-beverages'));
+const hotBeveragesList = document.getElementById("hotBeverages");
+let hotBeveragesShow = (localStorage.getItem('hotBeverages') != "[]") ? hotBeveragesList.style.display = "block" : hotBeveragesList.style.display = "none";
+let hotBeveragesStore = localStorage.getItem('hotBeverages') ? JSON.parse(localStorage.getItem('hotBeverages')) : [];
+localStorage.setItem('hotBeverages', JSON.stringify(hotBeveragesStore));
+const hotBeveragesData = JSON.parse(localStorage.getItem('hotBeverages'));
 
 const bakeryList = document.getElementById("bakery");
 let bakeryShow = (localStorage.getItem('bakery') != '[]') ? bakeryList.style.display = "block" : bakeryList.style.display = "none";
@@ -110,8 +112,8 @@ const bakingData = JSON.parse(localStorage.getItem('baking'));
 
 const breakfastList = document.getElementById("breakfast");
 let breakfastShow = (localStorage.getItem('breakfast') != '[]') ? breakfastList.style.display = "block" : breakfastList.style.display = "none";
-let breafastStore = localStorage.getItem('breakfast') ? JSON.parse(localStorage.getItem('breakfast')) : [];
-localStorage.setItem('breakfast', JSON.stringify(breafastStore));
+let breakfastStore = localStorage.getItem('breakfast') ? JSON.parse(localStorage.getItem('breakfast')) : [];
+localStorage.setItem('breakfast', JSON.stringify(breakfastStore));
 const breakfastData = JSON.parse(localStorage.getItem('breakfast'));
 
 const condimentsList = document.getElementById("condiments");
@@ -167,6 +169,12 @@ let meatShow = (localStorage.getItem('meat') != '[]') ? meatList.style.display =
 let meatStore = localStorage.getItem('meat') ? JSON.parse(localStorage.getItem('meat')) : [];
 localStorage.setItem('meat', JSON.stringify(meatStore));
 const meatData = JSON.parse(localStorage.getItem('meat'));
+
+const pastaList = document.getElementById("pasta");
+let pastaShow = (localStorage.getItem('pasta') != '[]') ? pastaList.style.display = "block" : pastaList.style.display = "none";
+let pastaStore = localStorage.getItem('pasta') ? JSON.parse(localStorage.getItem('pasta')) : [];
+localStorage.setItem('pasta', JSON.stringify(pastaStore));
+const pastaData = JSON.parse(localStorage.getItem('pasta'));
 
 const paperList = document.getElementById("paper");
 let paperShow = (localStorage.getItem('paper') != '[]') ? paperList.style.display = "block" : paperList.style.display = "none";
@@ -242,15 +250,15 @@ function addItem(input) {
             focusStore = alcoholicStore;
         }
         // Non-alcoholic Beverages
-        if (categories[1].includes(input.value.toLowerCase())) {
+        else if (categories[1].includes(input.value.toLowerCase())) {
             focusList = nonAlcoholicList;
             aisleList = aisle3List;
             focusStore = nonAlcoholicStore;
         }
         // Hot Beverages
-        if (categories[2].includes(input.value.toLowerCase())) {
+        else if (categories[2].includes(input.value.toLowerCase())) {
             focusList = hotBeveragesList;
-            aisleList = aisle3List;
+            aisleList = aisle1List;
             focusStore = hotBeveragesStore;
         }
         // Bread
@@ -262,20 +270,20 @@ function addItem(input) {
         // Baking
         else if (categories[4].includes(input.value.toLowerCase())) {
             focusList = bakingList;
-            aisleList = aisle2List;
+            aisleList = aisle1List;
             focusStore = bakingStore;
         }
         // Breakfast
         else if (categories[5].includes(input.value.toLowerCase())) {
             focusList = breakfastList;
-            aisleList = aisle2List;
-            focusStore = breakfastData;
+            aisleList = aisle1List;
+            focusStore = breakfastStore;
         }
         // Condiments, sauces, and oils
         else if (categories[6].includes(input.value.toLowerCase())) {
             focusList = condimentsList;
-            aisleList = aisle2List;
-            focusStore = condimentsData;
+            aisleList = aisle1List;
+            focusStore = condimentsStore;
         }
         // Confectionary
         else if (categories[7].includes(input.value.toLowerCase())) {
@@ -331,38 +339,44 @@ function addItem(input) {
             aisleList = aisle1List;
             focusStore = snackingStore;
         }
-        // Paper and plastic
+        // Pasta and rice
         else if (categories[16].includes(input.value.toLowerCase())) {
+            focusList = pastaList;
+            aisleList = aisle2List;
+            focusStore = pastaStore;
+        }
+        // Paper and plastic
+        else if (categories[17].includes(input.value.toLowerCase())) {
             focusList = paperList;
             aisleList = aisle3List;
             focusStore = paperStore;
         }
         // Personal Care
-        else if (categories[17].includes(input.value.toLowerCase())) {
+        else if (categories[18].includes(input.value.toLowerCase())) {
             focusList = careList;
             aisleList = aisle3List;
             focusStore = careStore;
         }
         // Produce
-        else if (categories[18].includes(input.value.toLowerCase())) {
+        else if (categories[19].includes(input.value.toLowerCase())) {
             focusList = produceList;
             aisleList = aisle1List;
             focusStore = produceStore;
         }
         // Spices
-        else if (categories[19].includes(input.value.toLowerCase())) {
+        else if (categories[20].includes(input.value.toLowerCase())) {
             focusList = spicesList;
             aisleList = aisle1List;
             focusStore = spicesStore;
         }
         // Spreads
-        else if (categories[20].includes(input.value.toLowerCase())) {
+        else if (categories[21].includes(input.value.toLowerCase())) {
             focusList = spreadsList;
             aisleList = aisle1List;
             focusStore = spreadsStore;
         }
         // Tinned & Jarred
-        else if (categories[21].includes(input.value.toLowerCase())) {
+        else if (categories[22].includes(input.value.toLowerCase())) {
             focusList = tinList;
             aisleList = aisle1List;
             focusStore = tinStore;
@@ -372,7 +386,7 @@ function addItem(input) {
             focusList = otherList;
             aisleList = aisle4List;
             focusStore = otherStore;
-            //   position = otherData.length;
+          //position = otherData.length;
         }
 
 
@@ -382,7 +396,7 @@ function addItem(input) {
         position = focusStore.length;
         focusStore.push([input.value, checked, identifier, position]);
         localStorage.setItem(focusList.id, JSON.stringify(focusStore))
-    
+
         liMaker(input.value, checked, identifier, position);
         input.value = '';
         inputInfo.innerHTML = "";
@@ -832,6 +846,30 @@ const snackingMaker = (text) => {
 
 snackingData.forEach(item => {
     snackingMaker(item)
+})
+
+// pasta and rice
+const pastaMaker = (text) => {
+    //  text[0] = text
+    //  text[1] = checked
+    //  text[2] = identifier
+    //  text[3] = position
+    var label = document.createElement("LABEL");
+    var li = document.createElement("INPUT");
+    li.setAttribute("type", "checkbox");
+    li.setAttribute("onclick", `selectItem(["${text[0]}", "${text[1]}", ${text[2]}, ${text[3]}])`);
+    li.setAttribute("id", `input-${text[2]}`);
+    label.classList.add(text[1]);
+    label.setAttribute("id", `${text[0]}-${text[3]}`);
+    pastaList.appendChild(label);
+    label.appendChild(li);
+    label.appendChild(document.createTextNode(`${text[0]}`));
+    var br = document.createElement("br");
+    pastaList.appendChild(br);
+}
+
+pastaData.forEach(item => {
+    pastaMaker(item)
 })
 
 // paper and plastic
