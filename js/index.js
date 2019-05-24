@@ -1,6 +1,23 @@
 const input = document.getElementById('input');
 const checkboxItems = document.getElementById('checkbox-item');
 
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+
+    setTimeout(function () {
+        document.body.style.background = "#d1cfcf";
+    }, 210);
+
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+
+    setTimeout(function () {
+        document.body.style.background = "#fff";
+    }, 210);
+
+}
 
 // Enter key
 document.getElementById("input")
@@ -386,7 +403,7 @@ function addItem(input) {
             focusList = otherList;
             aisleList = aisle4List;
             focusStore = otherStore;
-          //position = otherData.length;
+            //position = otherData.length;
         }
 
 

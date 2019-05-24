@@ -8,166 +8,170 @@
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
         integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Caveat:700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/style.css">
     <title>Smartshop</title>
 </head>
 
 <body>
+
     <div class="container">
 
-        <!--
-        <form>
-            <select name="sorting">
-                <option value="categories">Categories</option>
-                <option value="aisles">Aisles</option>
-            </select>
-        </form>
-    -->
         <div class="row main">
-            <div class="col-12 col-md-6 col-lg-4" id="">
+            <div class="col-12 col-md-6 col-lg-4">
 
-                <h2 class="logo text-center">Smartshop</h2>
-
-                <div class="searchbox">
-                    <div class="autocomplete" style="width:100%;">
-                        <input id="input" type="text" name="input" autocomplete="off" placeholder="">
-                    </div>
-
-                    <input onclick="addItem(input)" id="add-button" type="submit" value="Add"></input>
-
-                </div>
-                <p id="inputInfo" class="text-center"></p>
-
-                <div id="categories">
-
-                    <div id="alcoholic">
-                        <h3>Alcoholic beverages</h3>
-                    </div>
-
-                    <div id="nonAlcoholic">
-                        <h3>Non-alcoholic beverages</h3>
-                    </div>
-
-                    <div id="hotBeverages">
-                        <h3>Hot beverages</h3>
-                    </div>
-
-                    <div id="bakery">
-                        <h3>Bakery</h3>
-                    </div>
-
-                    <div id="baking">
-                        <h3>Baking</h3>
-                    </div>
-
-                    <div id="breakfast">
-                        <h3>Breakfast</h3>
-                    </div>
-
-                    <div id="condiments">
-                        <h3>Condiments, sauces, and oils</h3>
-                    </div>
-
-                    <div id="confectionary">
-                        <h3>Confectionary</h3>
-                    </div>
-
-                    <div id="dairy">
-                        <h3>Dairy and eggs</h3>
-                    </div>
-
-                    <div id="delicatessen">
-                        <h3>Delicatessen</h3>
-                    </div>
-
-                    <div id="fish">
-                        <h3>Fish and seafood</h3>
-                    </div>
-
-                    <div id="frozen">
-                        <h3>Frozen</h3>
-                    </div>
-
-                    <div id="health">
-                        <h3>Health</h3>
-                    </div>
-
-                    <div id="household">
-                        <h3>Household</h3>
-                    </div>
-
-                    <div id="meat">
-                        <h3>Meat</h3>
-                    </div>
-
-                    <div id="pasta">
-                        <h3>Pasta and rice</h3>
-                    </div>
-
-                    <div id="paper">
-                        <h3>Paper and plastic</h3>
-                    </div>
-
-                    <div id="care">
-                        <h3>Personal Care</h3>
-                    </div>
-
-                    <div id="produce">
-                        <h3>Produce</h3>
-                    </div>
-
-                    <div id="snacking">
-                        <h3>Nuts and snacking fruits</h3>
-                    </div>
-
-                    <div id="spices">
-                        <h3>Spices</h3>
-                    </div>
-
-                    <div id="spreads">
-                        <h3>Spreads</h3>
-                    </div>
-
-                    <div id="tin">
-                        <h3>Tins & Jars</h3>
-                    </div>
-
-                    <div id="other">
-                        <h3>Other</h3>
-                    </div>
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="#">About</a>
+                    <a href="#">Settings</a>
                 </div>
 
+                <span style="font-size:28px;cursor:pointer" onclick="openNav()"><i class="fas fa-bars"></i></span>
 
-                <div id="aisles">
+                    <h2 class="logo text-center">Smartshop</h2>
 
-                    <div id="aisle1">
-                        <h3 class="aisle-title">1st Aisle</h3>
-                        <p class="aisle-info">Produce, Dairy, Tins & Jars, and Meat</p>
+                    <div class="searchbox">
+                        <div class="autocomplete" style="width:100%;">
+                            <input id="input" type="text" name="input" autocomplete="off" placeholder="">
+                        </div>
+
+                        <input onclick="addItem(input)" id="add-button" type="submit" value="Add"></input>
+
                     </div>
 
-                    <div id="aisle2">
-                        <h3 class="aisle-title">2nd Aisle</h3>
-                        <p class="aisle-info">Bread, Health, Dry & Baking Goods</p>
+                    <p id="inputInfo" class="text-center"></p>
+
+                    <div id="categories">
+
+                        <div id="alcoholic">
+                            <h3>Alcoholic beverages</h3>
+                        </div>
+
+                        <div id="nonAlcoholic">
+                            <h3>Non-alcoholic beverages</h3>
+                        </div>
+
+                        <div id="hotBeverages">
+                            <h3>Hot beverages</h3>
+                        </div>
+
+                        <div id="bakery">
+                            <h3>Bakery</h3>
+                        </div>
+
+                        <div id="baking">
+                            <h3>Baking</h3>
+                        </div>
+
+                        <div id="breakfast">
+                            <h3>Breakfast</h3>
+                        </div>
+
+                        <div id="condiments">
+                            <h3>Condiments, sauces, and oils</h3>
+                        </div>
+
+                        <div id="confectionary">
+                            <h3>Confectionary</h3>
+                        </div>
+
+                        <div id="dairy">
+                            <h3>Dairy and eggs</h3>
+                        </div>
+
+                        <div id="delicatessen">
+                            <h3>Delicatessen</h3>
+                        </div>
+
+                        <div id="fish">
+                            <h3>Fish and seafood</h3>
+                        </div>
+
+                        <div id="frozen">
+                            <h3>Frozen</h3>
+                        </div>
+
+                        <div id="health">
+                            <h3>Health</h3>
+                        </div>
+
+                        <div id="household">
+                            <h3>Household</h3>
+                        </div>
+
+                        <div id="meat">
+                            <h3>Meat</h3>
+                        </div>
+
+                        <div id="pasta">
+                            <h3>Pasta and rice</h3>
+                        </div>
+
+                        <div id="paper">
+                            <h3>Paper and plastic</h3>
+                        </div>
+
+                        <div id="care">
+                            <h3>Personal Care</h3>
+                        </div>
+
+                        <div id="produce">
+                            <h3>Produce</h3>
+                        </div>
+
+                        <div id="snacking">
+                            <h3>Nuts and snacking fruits</h3>
+                        </div>
+
+                        <div id="spices">
+                            <h3>Spices</h3>
+                        </div>
+
+                        <div id="spreads">
+                            <h3>Spreads</h3>
+                        </div>
+
+                        <div id="tin">
+                            <h3>Tins & Jars</h3>
+                        </div>
+
+                        <div id="other">
+                            <h3>Other</h3>
+                        </div>
                     </div>
 
-                    <div id="aisle3">
-                        <h3 class="aisle-title">3rd Aisle</h3>
-                        <p class="aisle-info">Beverages, Paper, Cleaners, Personal Care, Frozen Foods</p>
+
+                    <div id="aisles">
+
+                        <div id="aisle1">
+                            <h3 class="aisle-title">1st Aisle</h3>
+                            <!--<p class="aisle-info">Produce, Dairy, Tins & Jars, and Meat</p>-->
+                        </div>
+
+                        <div id="aisle2">
+                            <h3 class="aisle-title">2nd Aisle</h3>
+                            <!--<p class="aisle-info">Bread, Health, Dry & Baking Goods</p>-->
+                        </div>
+
+                        <div id="aisle3">
+                            <h3 class="aisle-title">3rd Aisle</h3>
+                            <!--<p class="aisle-info">Beverages, Paper, Cleaners, Personal Care, Frozen Foods</p>-->
+                        </div>
+
+                        <div id="aisle4">
+                            <h3 class="aisle-title">Other Aisle</h3>
+                            <!-- <p class="aisle-info">Any unsorted items</p>-->
+                        </div>
+
                     </div>
 
-                    <div id="aisle4">
-                        <h3 class="aisle-title">Other Aisle</h3>
-                        <p class="aisle-info">Any unsorted items</p>
-                    </div>
-
-                </div>
-
-                <!--
+                    <!--
         <input id="input" type="text" name="input" autocomplete="off" placeholder="">
 -->
 
 
-                <!--<button onclick="" class="btn btn-info finished" id="finished-button">Finished</button>-->
+                    <!--<button onclick="" class="btn btn-info finished" id="finished-button">Finished</button>-->
 
             </div>
 
