@@ -3,20 +3,14 @@ const checkboxItems = document.getElementById('checkbox-item');
 
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
-
-    setTimeout(function () {
-        document.body.style.background = "#d1cfcf";
-    }, 210);
-
+    document.body.style.background = "#b6b6b6";
+    document.body.style.transition = "all 2s";
 }
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
-
-    setTimeout(function () {
-        document.body.style.background = "#fff";
-    }, 210);
-
+    document.body.style.background = "#fff";
+    document.body.style.transition = "all 2s";
 }
 
 // Enter key

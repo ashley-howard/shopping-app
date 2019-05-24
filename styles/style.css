@@ -1,6 +1,6 @@
 #aisle1,#aisle2,#aisle3,#aisle4,#alcoholic,#bakery,#baking,#breakfast,#care,#condiments,#confectionary,#dairy,#delicatessen,#fish,#frozen,#health,#hotBeverages,#household,#meat,#nonAlcoholic,#other,#paper,#pasta,#produce,#snacking,#spices,#spreads,#tin{display:none;padding:10px;margin:10px 0;border-bottom:1.5px solid #e7e4e4}
 .row.main{padding-top:10px;justify-content:center}
-.logo{font-family:"Caveat",cursive;color:#65b7ff;margin-top:-38px}
+.logo{font-family:Caveat,cursive;color:#65b7ff;margin-top:-52px;font-size:1.9rem}
 h3{font-size:1.2em;font-family:'open sans',sans-serif;color:#65b7ff}
 .fa-bars{color:#65b7ff}
 span{font-size:1.1em}
