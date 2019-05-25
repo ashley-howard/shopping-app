@@ -29,7 +29,7 @@ document.getElementById("input")
     .addEventListener("keyup", function (event) {
         event.preventDefault();
         if (event.keyCode === 13) {
-            filter.click();
+            document.getElementById("add-button").click();
             inputInfo.innerHTML = "";
         }
     });
