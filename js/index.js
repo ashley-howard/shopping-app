@@ -78,7 +78,7 @@ var categories = [
     ["peas (tinned)", "tuna", "olives", "anchovies", "chickpeas (tinned)"]
 ]
 
-var concatCategories = categories.flat();
+
 
 /*
 const storedItemsList = document.getElementById("stored");
@@ -91,147 +91,149 @@ const storedItemsData = JSON.parse(localStorage.getItem('stored'));
 // var myNewArray = JSON.parse(myArray)
 //const beveragesData = JSON.parse(localStorage.getItem('stored'));
 
+var concatCategories = categories.flat();
+
 const alcoholicList = document.getElementById("alcoholic");
-let alcoholicShow = (localStorage.getItem('alcoholic') != "[]") ? alcoholicList.style.display = "block" : alcoholicList.style.display = "none";
 let alcoholicStore = localStorage.getItem('alcoholic') ? JSON.parse(localStorage.getItem('alcoholic')) : [];
+let alcoholicShow = alcoholicStore.length > 0 ? alcoholicList.style.display = "block" : alcoholicList.style.display = "none";
 localStorage.setItem('alcoholic', JSON.stringify(alcoholicStore));
 const alcoholicData = JSON.parse(localStorage.getItem('alcoholic'));
 
 const nonAlcoholicList = document.getElementById("nonAlcoholic");
-let nonAlcoholicShow = (localStorage.getItem('nonAlcoholic') != "[]") ? nonAlcoholicList.style.display = "block" : nonAlcoholicList.style.display = "none";
 let nonAlcoholicStore = localStorage.getItem('nonAlcoholic') ? JSON.parse(localStorage.getItem('nonAlcoholic')) : [];
+let nonAlcoholicShow = nonAlcoholicStore.length > 0 ? nonAlcoholicList.style.display = "block" : nonAlcoholicList.style.display = "none";
 localStorage.setItem('nonAlcoholic', JSON.stringify(nonAlcoholicStore));
 const nonAlcoholicData = JSON.parse(localStorage.getItem('nonAlcoholic'));
 
 const hotBeveragesList = document.getElementById("hotBeverages");
-let hotBeveragesShow = (localStorage.getItem('hotBeverages') != "[]") ? hotBeveragesList.style.display = "block" : hotBeveragesList.style.display = "none";
 let hotBeveragesStore = localStorage.getItem('hotBeverages') ? JSON.parse(localStorage.getItem('hotBeverages')) : [];
+let hotBeveragesShow = hotBeveragesStore.length > 0 ? hotBeveragesList.style.display = "block" : hotBeveragesList.style.display = "none";
 localStorage.setItem('hotBeverages', JSON.stringify(hotBeveragesStore));
 const hotBeveragesData = JSON.parse(localStorage.getItem('hotBeverages'));
 
 const bakeryList = document.getElementById("bakery");
-let bakeryShow = (localStorage.getItem('bakery') != '[]') ? bakeryList.style.display = "block" : bakeryList.style.display = "none";
 let bakeryStore = localStorage.getItem('bakery') ? JSON.parse(localStorage.getItem('bakery')) : [];
+let bakeryShow = bakeryStore.length > 0 ? bakeryList.style.display = "block" : bakeryList.style.display = "none";
 localStorage.setItem('bakery', JSON.stringify(bakeryStore));
 const bakeryData = JSON.parse(localStorage.getItem('bakery'));
 
 const bakingList = document.getElementById("baking");
-let bakingShow = (localStorage.getItem('baking') != '[]') ? bakingList.style.display = "block" : bakingList.style.display = "none";
 let bakingStore = localStorage.getItem('baking') ? JSON.parse(localStorage.getItem('baking')) : [];
+let bakingShow = bakingStore.length > 0 ? bakingList.style.display = "block" : bakingList.style.display = "none";
 localStorage.setItem('baking', JSON.stringify(bakingStore));
 const bakingData = JSON.parse(localStorage.getItem('baking'));
 
 const breakfastList = document.getElementById("breakfast");
-let breakfastShow = (localStorage.getItem('breakfast') != '[]') ? breakfastList.style.display = "block" : breakfastList.style.display = "none";
 let breakfastStore = localStorage.getItem('breakfast') ? JSON.parse(localStorage.getItem('breakfast')) : [];
+let breakfastShow = breakfastStore.length > 0 ? breakfastList.style.display = "block" : breakfastList.style.display = "none";
 localStorage.setItem('breakfast', JSON.stringify(breakfastStore));
 const breakfastData = JSON.parse(localStorage.getItem('breakfast'));
 
 const condimentsList = document.getElementById("condiments");
-let condimentsShow = (localStorage.getItem('condiments') != '[]') ? condimentsList.style.display = "block" : condimentsList.style.display = "none";
 let condimentsStore = localStorage.getItem('condiments') ? JSON.parse(localStorage.getItem('condiments')) : [];
+let condimentsShow = condimentsStore.length > 0 ? condimentsList.style.display = "block" : condimentsList.style.display = "none";
 localStorage.setItem('condiments', JSON.stringify(condimentsStore));
 const condimentsData = JSON.parse(localStorage.getItem('condiments'));
 
 const confectionaryList = document.getElementById("confectionary");
-let confectionaryShow = (localStorage.getItem('confectionary') != '[]') ? confectionaryList.style.display = "block" : confectionaryList.style.display = "none";
 let confectionaryStore = localStorage.getItem('confectionary') ? JSON.parse(localStorage.getItem('confectionary')) : [];
+let confectionaryShow = confectionaryStore.length > 0 ? confectionaryList.style.display = "block" : confectionaryList.style.display = "none";
 localStorage.setItem('confectionary', JSON.stringify(confectionaryStore));
 const confectionaryData = JSON.parse(localStorage.getItem('confectionary'));
 
 const dairyList = document.getElementById("dairy");
-let dairyShow = (localStorage.getItem('dairy') != '[]') ? dairyList.style.display = "block" : dairyList.style.display = "none";
 let dairyStore = localStorage.getItem('dairy') ? JSON.parse(localStorage.getItem('dairy')) : [];
+let dairyShow = dairyStore.length > 0 ? dairyList.style.display = "block" : dairyList.style.display = "none";
 localStorage.setItem('dairy', JSON.stringify(dairyStore));
 const dairyData = JSON.parse(localStorage.getItem('dairy'));
 
 const delicatessenList = document.getElementById("delicatessen");
-let delicatessenShow = (localStorage.getItem('delicatessen') != '[]') ? delicatessenList.style.display = "block" : delicatessenList.style.display = "none";
 let delicatessenStore = localStorage.getItem('delicatessen') ? JSON.parse(localStorage.getItem('delicatessen')) : [];
+let delicatessenShow = delicatessenStore.length > 0 ? delicatessenList.style.display = "block" : delicatessenList.style.display = "none";
 localStorage.setItem('delicatessen', JSON.stringify(delicatessenStore));
 const delicatessenData = JSON.parse(localStorage.getItem('delicatessen'));
 
 const fishList = document.getElementById("fish");
-let fishShow = (localStorage.getItem('fish') != '[]') ? fishList.style.display = "block" : fishList.style.display = "none";
 let fishStore = localStorage.getItem('fish') ? JSON.parse(localStorage.getItem('fish')) : [];
+let fishShow = fishStore.length > 0 ? fishList.style.display = "block" : fishList.style.display = "none";
 localStorage.setItem('fish', JSON.stringify(fishStore));
 const fishData = JSON.parse(localStorage.getItem('fish'));
 
 const frozenList = document.getElementById("frozen");
-let frozenShow = (localStorage.getItem('frozen') != '[]') ? frozenList.style.display = "block" : frozenList.style.display = "none";
 let frozenStore = localStorage.getItem('frozen') ? JSON.parse(localStorage.getItem('frozen')) : [];
+let frozenShow = frozenStore.length > 0 ? frozenList.style.display = "block" : frozenList.style.display = "none";
 localStorage.setItem('frozen', JSON.stringify(frozenStore));
 const frozenData = JSON.parse(localStorage.getItem('frozen'));
 
 const householdList = document.getElementById("household");
-let householdShow = (localStorage.getItem('household') != '[]') ? householdList.style.display = "block" : householdList.style.display = "none";
 let householdStore = localStorage.getItem('household') ? JSON.parse(localStorage.getItem('household')) : [];
+let householdShow = householdStore.length > 0 ? householdList.style.display = "block" : householdList.style.display = "none";
 localStorage.setItem('household', JSON.stringify(householdStore));
 const householdData = JSON.parse(localStorage.getItem('household'));
 
 const healthList = document.getElementById("health");
-let healthShow = (localStorage.getItem('health') != '[]') ? healthList.style.display = "block" : healthList.style.display = "none";
 let healthStore = localStorage.getItem('health') ? JSON.parse(localStorage.getItem('health')) : [];
+let healthShow = healthStore.length > 0 ? healthList.style.display = "block" : healthList.style.display = "none";
 localStorage.setItem('health', JSON.stringify(healthStore));
 const healthData = JSON.parse(localStorage.getItem('health'));
 
 const meatList = document.getElementById("meat");
-let meatShow = (localStorage.getItem('meat') != '[]') ? meatList.style.display = "block" : meatList.style.display = "none";
 let meatStore = localStorage.getItem('meat') ? JSON.parse(localStorage.getItem('meat')) : [];
+let meatShow = meatStore.length > 0 ? meatList.style.display = "block" : meatList.style.display = "none";
 localStorage.setItem('meat', JSON.stringify(meatStore));
 const meatData = JSON.parse(localStorage.getItem('meat'));
 
 const pastaList = document.getElementById("pasta");
-let pastaShow = (localStorage.getItem('pasta') != '[]') ? pastaList.style.display = "block" : pastaList.style.display = "none";
 let pastaStore = localStorage.getItem('pasta') ? JSON.parse(localStorage.getItem('pasta')) : [];
+let pastaShow = pastaStore.length > 0 ? pastaList.style.display = "block" : pastaList.style.display = "none";
 localStorage.setItem('pasta', JSON.stringify(pastaStore));
 const pastaData = JSON.parse(localStorage.getItem('pasta'));
 
 const paperList = document.getElementById("paper");
-let paperShow = (localStorage.getItem('paper') != '[]') ? paperList.style.display = "block" : paperList.style.display = "none";
 let paperStore = localStorage.getItem('paper') ? JSON.parse(localStorage.getItem('paper')) : [];
+let paperShow = paperStore.length > 0 ? paperList.style.display = "block" : paperList.style.display = "none";
 localStorage.setItem('paper', JSON.stringify(paperStore));
 const paperData = JSON.parse(localStorage.getItem('paper'));
 
 const careList = document.getElementById("care");
-let careShow = (localStorage.getItem('care') != '[]') ? careList.style.display = "block" : careList.style.display = "none";
 let careStore = localStorage.getItem('care') ? JSON.parse(localStorage.getItem('care')) : [];
+let careShow = careStore.length > 0 ? careList.style.display = "block" : careList.style.display = "none";
 localStorage.setItem('care', JSON.stringify(careStore));
 const careData = JSON.parse(localStorage.getItem('care'));
 
 const produceList = document.getElementById("produce");
-let produceShow = (localStorage.getItem('produce') != '[]') ? produceList.style.display = "block" : produceList.style.display = "none";
 let produceStore = localStorage.getItem('produce') ? JSON.parse(localStorage.getItem('produce')) : [];
+let produceShow = produceStore.length > 0 ? produceList.style.display = "block" : produceList.style.display = "none";
 localStorage.setItem('produce', JSON.stringify(produceStore));
 const produceData = JSON.parse(localStorage.getItem('produce'));
 
 const snackingList = document.getElementById("snacking");
-let snackingShow = (localStorage.getItem('snacking') != '[]') ? snackingList.style.display = "block" : snackingList.style.display = "none";
 let snackingStore = localStorage.getItem('snacking') ? JSON.parse(localStorage.getItem('snacking')) : [];
+let snackingShow = snackingStore.length > 0 ? snackingList.style.display = "block" : snackingList.style.display = "none";
 localStorage.setItem('snacking', JSON.stringify(snackingStore));
 const snackingData = JSON.parse(localStorage.getItem('snacking'));
 
 const spicesList = document.getElementById("spices");
-let spicesShow = (localStorage.getItem('spices') != '[]') ? spicesList.style.display = "block" : spicesList.style.display = "none";
 let spicesStore = localStorage.getItem('spices') ? JSON.parse(localStorage.getItem('spices')) : [];
+let spicesShow = spicesStore.length > 0 ? spicesList.style.display = "block" : spicesList.style.display = "none";
 localStorage.setItem('spices', JSON.stringify(spicesStore));
 const spicesData = JSON.parse(localStorage.getItem('spices'));
 
 const spreadsList = document.getElementById("spreads");
-let spreadsShow = (localStorage.getItem('spreads') != '[]') ? spreadsList.style.display = "block" : spreadsList.style.display = "none";
 let spreadsStore = localStorage.getItem('spreads') ? JSON.parse(localStorage.getItem('spreads')) : [];
+let spreadsShow = spreadsStore.length > 0 ? spreadsList.style.display = "block" : spreadsList.style.display = "none";
 localStorage.setItem('spreads', JSON.stringify(spreadsStore));
 const spreadsData = JSON.parse(localStorage.getItem('spreads'));
 
 const tinList = document.getElementById("tin");
-let tinShow = (localStorage.getItem('tin') != '[]') ? tinList.style.display = "block" : tinList.style.display = "none";
 let tinStore = localStorage.getItem('tin') ? JSON.parse(localStorage.getItem('tin')) : [];
+let tinShow = tinStore.length > 0 ? tinList.style.display = "block" : tinList.style.display = "none";
 localStorage.setItem('tin', JSON.stringify(tinStore));
 const tinData = JSON.parse(localStorage.getItem('tin'));
 
 const otherList = document.getElementById("other");
-let otherShow = (localStorage.getItem('other') != '[]') ? otherList.style.display = "block" : otherList.style.display = "none";
 let otherStore = localStorage.getItem('other') ? JSON.parse(localStorage.getItem('other')) : [];
+let otherShow = otherStore.length > 0 ? otherList.style.display = "block" : otherList.style.display = "none";
 localStorage.setItem('other', JSON.stringify(otherStore));
 const otherData = JSON.parse(localStorage.getItem('other'));
 
@@ -418,21 +420,9 @@ function addItem(input) {
         document.getElementById("input").focus();
     }
 
-
-
     document.getElementById("input").focus();
     randPlaceholder();
 }
-
-/*
-const { beverages, bread, cleaners, dairy, dry, frozen, produce, health, meat, paper, care, tin, other } = storedItemsData.reduce((r, [item, type]) => {
-    r[type] = r[type] || [];
-    r[type].push(item)
-    return r;
-}, {})
-*/
-
-
 
 
 // in general
