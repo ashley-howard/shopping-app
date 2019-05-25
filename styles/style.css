@@ -1,7 +1,8 @@
 #aisle1,#aisle2,#aisle3,#aisle4,#alcoholic,#bakery,#baking,#breakfast,#care,#condiments,#confectionary,#dairy,#delicatessen,#fish,#frozen,#health,#hotBeverages,#household,#meat,#nonAlcoholic,#other,#paper,#pasta,#produce,#snacking,#spices,#spreads,#tin{display:none;padding:10px;margin:10px 0;border-bottom:1.5px solid #e7e4e4}
+#settingsScreen{display:none}
 .row.main{padding-top:10px;justify-content:center}
 .logo{font-family:Caveat,cursive;color:#65b7ff;margin-top:-52px;font-size:1.9rem}
-a.logo{color:#65b7ff}
+a{color:#65b7ff!important}
 h3{font-size:1.2em;font-family:'open sans',sans-serif;color:#65b7ff}
 .fa-bars{color:#65b7ff}
 span{font-size:1.1em}
@@ -22,7 +23,9 @@ input[type=checkbox]{box-sizing:border-box;padding:0;width:15px;height:15px;marg
 .sidenav a{padding:8px 8px 8px 32px;text-decoration:none;font-size:20px;color:#65b7ff;display:block;transition:.3s;font-family:'open sans',sans-serif}
 .sidenav a:hover{color:#65b7ff}
 .sidenav .closebtn{position:absolute;top:0;right:25px;font-size:36px;margin-left:50px}
+.btn-info{background-color:#65b7ff;border-color:#65b7ff}
 @media screen and (max-height:450px){
 .sidenav{padding-top:15px}
 .sidenav a{font-size:18px}
 }
+.padding{padding: 0 60px;margin:10px 0}

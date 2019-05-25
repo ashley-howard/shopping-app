@@ -1,5 +1,8 @@
 const input = document.getElementById('input');
 const checkboxItems = document.getElementById('checkbox-item');
+const addScreen = document.getElementById('addScreen');
+const settingsScreen = document.getElementById('settingsScreen');
+const clearText = document.getElementById('clearText');
 
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -13,14 +16,7 @@ function closeNav() {
     document.body.style.transition = "all 2s";
 }
 
-// Enter key
-document.getElementById("input")
-    .addEventListener("keyup", function (event) {
-        event.preventDefault();
-        if (event.keyCode === 13) {
-            document.getElementById("add-button").click();
-        }
-    });
+
 
 const inputInfo = document.getElementById("inputInfo");
 const finishButton = document.getElementById('finished-button');
@@ -402,6 +398,14 @@ function addItem(input) {
             //position = otherData.length;
         }
 
+        // Enter key
+        document.getElementById("input")
+            .addEventListener("keyup", function (event) {
+                event.preventDefault();
+                if (event.keyCode === 13 && input.value !== '') {
+                    document.getElementById("add-button").click();
+                }
+            });
 
         focusList.style.display = "block";
         // focusStore.push(input.value);
@@ -1082,7 +1086,7 @@ function autocomplete(inp, arr) {
                 /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function (e) {
                     /*insert the value for the autocomplete text field:*/
-                    
+
                     inp.value = this.getElementsByTagName("input")[0].value;
                     addItem(input)
                     /*close the list of autocompleted values,
@@ -1192,4 +1196,17 @@ function selectItem(text) {
         //  console.log(`Item: "${text[0]}", Category: "${getId}", Checked: "${text[1]}", Identifier: "${text[2]}", Position: "${text[3]}" deselected`);
         console.log(`${getId}Data[${text[3]}]: "${text[0]}" DESELECTED`);
     }
+}
+
+function changeScreen(screen) {
+    if (screen === 'settings') {
+        addScreen.style.display = "none";
+        settingsScreen.style.display = "block";
+        closeNav();
+    }
+}
+
+function clearStorage() {
+    localStorage.clear();
+    clearText.innerHTML = "Please refresh to see changes"
 }

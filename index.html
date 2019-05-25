@@ -23,13 +23,17 @@
 
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="#">About</a>
-                    <a href="#">Settings</a>
+                    <a href="./">Home</a>
+                    <a onclick="">Switch to Aisles</a>
+                    <a href="about">About</a>
+                    <a onclick="changeScreen('settings')">Settings</a>
                 </div>
 
                 <span style="font-size:28px;cursor:pointer" onclick="openNav()"><i class="fas fa-bars"></i></span>
 
-                    <a class="logo text-center nav-link" href="./">Smartshop</a>
+                <a class="logo text-center nav-link" href="./">Smartshop</a>
+
+                <div id="addScreen">
 
                     <div class="searchbox">
                         <div class="autocomplete" style="width:100%;">
@@ -37,7 +41,6 @@
                         </div>
 
                         <input onclick="addItem(input)" id="add-button" type="submit" value="Add"></input>
-
                     </div>
 
                     <p id="inputInfo" class="text-center"></p>
@@ -165,35 +168,47 @@
                         </div>
 
                     </div>
+                </div>
 
-                    <!--
-        <input id="input" type="text" name="input" autocomplete="off" placeholder="">
--->
+                <div id="settingsScreen">
 
+                    <div class="row main">
+                        <div class="col-12 col-md-6 col-lg-4 padding text-center">
 
-                    <!--<button onclick="" class="btn btn-info finished" id="finished-button">Finished</button>-->
+                            <input type="checkbox" id="dark-mode" name="dark" value="dark">Dark Mode<br>
+                            <br>
+                            <div class="buttons">
+                                 <!--<button onclick="saveSettings()" id="save-button" class="btn btn-info">Save</button>
+                                Clicking save should check if boxes are ticked, apply them, and then go back to add page -->
+                                <button onclick="clearStorage()" id="clear-data" class="btn btn-info">Clear
+                                    Data</button>
+                            </div>
+
+                            <p id="clearText"></p>
+
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
-
-
         </div>
-    </div>
 
 
 
 
-    <!-- Optional JavaScript -->
-    <script src="js/index.js"></script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'
-        integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo'
-        crossorigin='anonymous'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
-        integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1'
-        crossorigin='anonymous'></script>
-    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
-        integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM'
-        crossorigin='anonymous'></script>
+        <!-- Optional JavaScript -->
+        <script src="js/index.js"></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'
+            integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo'
+            crossorigin='anonymous'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
+            integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1'
+            crossorigin='anonymous'></script>
+        <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
+            integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM'
+            crossorigin='anonymous'></script>
 </body>
 
 </html>
