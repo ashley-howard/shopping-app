@@ -272,11 +272,11 @@ function addItem(input) {
             aisleList = aisle1List;
             focusStore = hotBeveragesStore;
         }
-        // Bread
+        // Bakery
         else if (categories[3].includes(input.value.toLowerCase())) {
-            focusList = breadList;
+            focusList = bakeryList;
             aisleList = aisle2List;
-            focusStore = breadStore;
+            focusStore = bakeryStore;
         }
         // Baking
         else if (categories[4].includes(input.value.toLowerCase())) {
