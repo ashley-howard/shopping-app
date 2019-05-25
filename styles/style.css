@@ -19,7 +19,7 @@ input[type=checkbox]{box-sizing:border-box;padding:0;width:15px;height:15px;marg
 .autocomplete-items div:hover{background-color:#e9e9e9}
 .autocomplete-active{background-color:#1e90ff!important;color:#fff}
 #checked{text-decoration:line-through}
-.sidenav{height:100%;width:0;position:fixed;z-index:1;top:0;left:0;background-color:#ffffffdb;overflow-x:hidden;transition:.5s;padding-top:60px}
+.sidenav{height:100%;width:0;position:fixed;z-index:1;top:0;left:0;background-color:#fffffff2;overflow-x:hidden;transition:.5s;padding-top:60px}
 .sidenav a{padding:8px 8px 8px 32px;text-decoration:none;font-size:20px;color:#65b7ff;display:block;transition:.3s;font-family:'open sans',sans-serif}
 .sidenav a:hover{color:#65b7ff}
 .sidenav .closebtn{position:absolute;top:0;right:25px;font-size:36px;margin-left:50px}
@@ -28,4 +28,5 @@ input[type=checkbox]{box-sizing:border-box;padding:0;width:15px;height:15px;marg
 .sidenav{padding-top:15px}
 .sidenav a{font-size:18px}
 }
-.padding{padding: 0 60px;margin:10px 0}
+.padding{padding:0 60px;margin:10px 0}
+#filter{display:none;width:100%;height:100%;position:fixed;top:0;left:0}
