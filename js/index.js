@@ -16,7 +16,15 @@ function closeNav() {
     document.body.style.transition = "all 2s";
 }
 
-
+// Enter key
+document.getElementById("input")
+    .addEventListener("keyup", function (event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("add-button").click();
+            inputInfo.innerHTML = "";
+        }
+    });
 
 const inputInfo = document.getElementById("inputInfo");
 const finishButton = document.getElementById('finished-button');
@@ -65,7 +73,7 @@ var categories = [
     // Personal Care
     ["cream", "wax", "razors", "cotton buds"],
     // Produce
-    ["vegetables, fresh", "fruit", "bananas", "apples", "oranges", "lemons", "mango", "passionfruit", "broccoli"],
+    ["vegetables (fresh)", "fruit", "bananas", "apples", "oranges", "lemons", "mango", "passionfruit", "broccoli"],
     // Spices
     ["curry"],
     // Spreads
@@ -398,15 +406,6 @@ function addItem(input) {
             //position = otherData.length;
         }
 
-        // Enter key
-        document.getElementById("input")
-            .addEventListener("keyup", function (event) {
-                event.preventDefault();
-                if (event.keyCode === 13 && input.value !== '') {
-                    document.getElementById("add-button").click();
-                }
-            });
-
         focusList.style.display = "block";
         // focusStore.push(input.value);
         //localStorage.setItem([focusList.id], JSON.stringify(focusStore))
@@ -417,15 +416,19 @@ function addItem(input) {
         liMaker(input.value, checked, identifier, position);
         input.value = '';
         inputInfo.innerHTML = "";
+        randPlaceholder();
     }
     // Empty
     else {
         inputInfo.innerHTML = "Please type something";
+        setTimeout(function () {
+            inputInfo.innerHTML = "";
+        }, 2000);
+
         document.getElementById("input").focus();
     }
 
     document.getElementById("input").focus();
-    randPlaceholder();
 }
 
 
